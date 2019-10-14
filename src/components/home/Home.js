@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Home.css';
+import {withRouter} from 'react-router-dom'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList'
 
@@ -20,4 +21,4 @@ function Home () {
   );
 }
 
-export default Home;
+export default withRouter(Home);
