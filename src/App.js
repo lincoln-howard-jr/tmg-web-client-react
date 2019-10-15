@@ -13,7 +13,6 @@ import useAuth from './hooks/authHook';
 export default function App() {
   let {ret, login, signup, getMe} = useAuth ();
   let [meErr, me] = ret;
-  login ({username: 'lincoln.howard', password: 'password'});
   return (
     <Router>
       <>
