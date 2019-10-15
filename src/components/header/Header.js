@@ -1,31 +1,34 @@
-import React from 'react'
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import { withRouter} from "react-router-dom";
 
-function Header({me, useHistory}) {
+function Header(props) {
+
+  let history = props.history
+
+  function handleClickLogin() {
+    history.push("/login");
+  }
+  function handleClickSignup() {
+    history.push("/signup");
+  }
   return (
     <header>
       <nav>
-
-        <div></div>
 
         <div>
           <h1 id="title-text">The Metropolitan Global</h1>
         </div>
 
         <div>
-          {
-            me._id &&
-            <span>Welcome, {me.first} {me.last}</span>
-          }
-          {
-            !me._is &&
-            <>
-              <span>Log In</span>
-              <span>Sign Up</span>
-            </>
-          }
+          {<span>Welcome</span>}
+          <button type="button" onClick={handleClickLogin}>
+            Login
+          </button>
+          <button type="button" onClick={handleClickSignup}>
+            Signup
+          </button>
         </div>
-
       </nav>
     </header>
   )
@@ -33,7 +36,8 @@ function Header({me, useHistory}) {
 
 Header.propTypes = {
   me: PropTypes.object.isRequired,
-  useHistory: PropTypes.func.isRequired
-}
+  useHistory: PropTypes.func.isRequired,
 
-export default Header
+};
+
+export default withRouter(Header);

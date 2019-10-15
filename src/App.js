@@ -14,15 +14,37 @@ export default function App() {
   let {ret, login, signup, getMe} = useAuth ();
   let [meErr, me] = ret;
   return (
-    <Router>
-      <>
-        <Header useHistory={useHistory} me={me} />
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </>
-    </Router>
-  );
+    <div>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <Header />
+              <Home />
+            </div>
+          )}
+        />
+        <Route
+          exact
+          path="/login"
+          render={props => (
+            <LoginModal {...props} me={me} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/signup"
+          render={props => (
+            <div>
+              <Signup {...props} />
+            </div>
+          )}
+        />
+      </Switch>
+    </div>
+  )
 }
+export default withRouter(App);
