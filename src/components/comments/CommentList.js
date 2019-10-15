@@ -1,18 +1,22 @@
 import React from 'react'
+import Comment from './Comment';
+import useComments from '../../hooks/commentsHook';
 import PropTypes from 'prop-types';
 
-function CommentList({comments}) {
+function CommentList({rootType, rootId}) {
+  let {commentsErr, comments} = useComments (rootType, rootId);
   return (
-    <div>{comments.length}</div>
+    <ul className="comments-list">
+      {
+        comments.map (comment => <Comment comment={comment} key={`comment-${comment._id}`} />)
+      }
+    </ul>
   )
 }
 
 CommentList.propTypes = {
-  comments: PropTypes.arrayOf (PropTypes.object).isRequired,
-  addComment: PropTypes.func.isRequired,
-  deleteComment: PropTypes.func.isRequired,
-  selectComment: PropTypes.func.isRequired,
-  likeComment: PropTypes.func.isRequired
+  rootType: PropTypes.string.isRequired,
+  rootId: PropTypes.string.isRequired
 }
 
 export default CommentList

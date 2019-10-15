@@ -8,9 +8,12 @@ import {
 } from "react-router-dom";
 import Home from './components/home/Home';
 import Header from './components/header/Header';
+import useAuth from './hooks/authHook';
 
 export default function App() {
-  let [me, setMe] = useState ({});
+  let {ret, login, signup, getMe} = useAuth ();
+  let [meErr, me] = ret;
+  login ({username: 'lincoln.howard', password: 'password'});
   return (
     <Router>
       <>
