@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {
-  BrowserRouter as Router,
+  withRouter,
   Switch,
   Route,
-  Link,
-  useHistory
-} from "react-router-dom";
+  Link, useHistory} from "react-router-dom";
 import Home from './components/home/Home';
+import LoginModal from './components/modals/LogInModal'
+import SignupModal from './components/modals/Signup'
 import Header from './components/header/Header';
 import useAuth from './hooks/authHook';
 
-export default function App() {
+ function App() {
   let {ret, login, signup, getMe} = useAuth ();
   let [meErr, me] = ret;
   return (
@@ -39,7 +39,7 @@ export default function App() {
           path="/signup"
           render={props => (
             <div>
-              <Signup {...props} />
+              <SignupModal {...props} />
             </div>
           )}
         />
