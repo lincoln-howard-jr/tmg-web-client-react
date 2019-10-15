@@ -2,7 +2,7 @@ import {useState} from 'react';
 let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
 
 // handle elections causes and voting
-export default function ElectionHook () {
+export default function ElectionHook (mm, dd, yyyy) {
   let [election, setElection] = useState ({});
   let [causes, setCauses] = useState ([]);
   let [myCause, setMyCause] = useState ({});
@@ -10,7 +10,7 @@ export default function ElectionHook () {
 
   // get current election
   // if month/day/year provided, election from that date will be returned
-  const getElection = async (mm, dd, yyyy) => {
+  const getElection = async () => {
     try {
       let response;
       if (mm !== undefined && !!dd && !!yyyy)  {
@@ -27,7 +27,7 @@ export default function ElectionHook () {
 
   // get causes from current election
   // if month/day/year provided, causes from election from that date will be returned
-  const getCauses = async (mm, dd, yyyy) => {
+  const getCauses = async () => {
     try {
       let response;
       if (mm !== undefined && !!dd && !!yyyy)  {

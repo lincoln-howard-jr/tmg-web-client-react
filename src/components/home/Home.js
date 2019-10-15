@@ -1,25 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Home.css';
 import {withRouter} from 'react-router-dom'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';
-import useGetElection from '../../hooks/electionHook';
-import useGetCauses from '../../hooks/causesHook';
 
 function Home () {
-  let [electionErr, election] = useGetElection ();
-  console.log (electionErr, election);
-  let [causeErr, causes] = useGetCauses ();
-  console.log (causeErr, causes);
-  let [comments, setComments] = useState ([]);
+  let now = new Date ();
+  let causeListProps = {
+    mm: now.getMonth (),
+    dd: now.getDate (),
+    yyyy: now.getFullYear ()
+  };
   return (
-    <div class="main-grid">
-      <div class="causes mkscroll">
-        <h3 id="cause-list-heading"></h3>
-        <CauseList causes={causes} />
+    <div className="main-grid">
+      <div className="causes mkscroll">
+        <CauseList {...causeListProps} />
       </div>
-      <div class="mkscroll">
-        <CommentList comments={comments} />
+      <div className="mkscroll">
+        <CommentList rootType="forums" rootId="5cb3e6510ba34c080e3d7fe5" />
       </div>
     </div>
   );

@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import Signup from "./components/modals/Signup.js";
-import LoginModal from "./components/modals/LoginModal.js";
-import Home from "./components/home/Home";
-import Header from "./components/header/Header";
-import { Switch, Route, withRouter } from "react-router-dom";
+import React, {useState} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
+import Home from './components/home/Home';
+import Header from './components/header/Header';
+import useAuth from './hooks/authHook';
 
-function App() {
-  let [me, setMe] = useState({});
+export default function App() {
+  let {ret, login, signup, getMe} = useAuth ();
+  let [meErr, me] = ret;
   return (
     <div>
       <Switch>
