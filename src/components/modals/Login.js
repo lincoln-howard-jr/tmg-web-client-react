@@ -1,13 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
+import "./Login.css";
 import { Link } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 var classNames = require("classnames");
 
-function Signup({ location }) {
+const Login = ({ location }) => {
   const { state = {} } = location;
   const { modal } = state;
-
   let divClasses = classNames({
     modal: modal
   });
@@ -26,7 +25,7 @@ function Signup({ location }) {
   });
   return (
     <div className={divClasses}>
-      <p style={{ position: "absolute", left: "30%" }}>"Please Signup"</p>
+      <p style={{ position: "absolute", left: "30%" }}>"Please Login"</p>
       <Form style={{ position: "absolute", top: "35%", left: "10%" }}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address </Form.Label>
@@ -50,5 +49,6 @@ function Signup({ location }) {
       )}
     </div>
   );
-}
-export default withRouter(Signup);
+};
+
+export default Login;
