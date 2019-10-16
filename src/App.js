@@ -10,9 +10,19 @@ function App() {
   let [meErr, me] = ret;
   return (
     <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/login" component={LoginModal}/>
-            <Route path="/signup" component={SignupModal}/>
+      <Route path="/" exact component={Home} />
+      <Route path="/login" component={(props) => (
+        <>
+          <Home {...props} />
+          <LoginModal {...props} />
+        </>
+      )}/>
+      <Route path="/signup" component={(props) => (
+        <>
+          <Home {...props} />
+          <SignupModal {...props} />
+        </>
+      )}/>
     </Switch>
   );
 }
