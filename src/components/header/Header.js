@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter} from "react-router-dom";
 
-function Header(props) {
+function Header({ history }) {
 
-  let history = props.history
+  
 
   function handleClickLogin() {
     history.push("/login");
@@ -38,6 +38,6 @@ Header.propTypes = {
   me: PropTypes.object.isRequired,
   useHistory: PropTypes.func.isRequired,
 
-};
+}
 
 export default withRouter(Header);

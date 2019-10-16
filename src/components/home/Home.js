@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link, Switch} from 'react-router-dom'
+import Header from '../header/Header'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';
 
@@ -12,6 +13,8 @@ function Home () {
     yyyy: now.getFullYear ()
   };
   return (
+    <div>
+    <Header/>
     <div className="main-grid">
       <div className="causes mkscroll">
         <CauseList {...causeListProps} />
@@ -20,7 +23,8 @@ function Home () {
         <CommentList rootType="forums" rootId="5cb3e6510ba34c080e3d7fe5" />
       </div>
     </div>
-  );
+    </div>
+  )
 }
 
-export default withRouter(Home);
+export default Home;
