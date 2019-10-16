@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.css';
-import {withRouter, Link, Switch} from 'react-router-dom'
 import Header from '../header/Header'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';

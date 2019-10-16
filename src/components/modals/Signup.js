@@ -12,5 +12,4 @@ function Signup ({ location }) {
     </div>
     );
 }
-
 export default withRouter(Signup)

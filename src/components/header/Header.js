@@ -1,43 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter} from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
-function Header({ history }) {
-
-  
-
-  function handleClickLogin() {
-    history.push("/login");
-  }
-  function handleClickSignup() {
-    history.push("/signup");
-  }
+function Header() {
   return (
     <header>
       <nav>
-
         <div>
           <h1 id="title-text">The Metropolitan Global</h1>
         </div>
 
         <div>
           {<span>Welcome</span>}
-          <button type="button" onClick={handleClickLogin}>
+          <Link
+            to={{
+              pathname: "/login",
+              state: { modal: true }
+            }}
+          >
             Login
-          </button>
-          <button type="button" onClick={handleClickSignup}>
+          </Link>
+          <Link
+            to={{
+              pathname: "/signup",
+              state: { modal: true }
+            }}
+          >
             Signup
-          </button>
+          </Link>
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
 Header.propTypes = {
   me: PropTypes.object.isRequired,
-  useHistory: PropTypes.func.isRequired,
-
-}
+  useHistory: PropTypes.func.isRequired
+};
 
 export default withRouter(Header);
