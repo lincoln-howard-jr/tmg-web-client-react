@@ -15,7 +15,7 @@ function Header(props) {
             <Link
               to={{
                 pathname: "/login",
-                state: { modal: true, background: location }
+                state: { modal: true }
               }}
               style={{ textDecoration: "none" }}
             >
@@ -27,7 +27,7 @@ function Header(props) {
             <Link
               to={{
                 pathname: "/signup",
-                state: { modal: true, background: location }
+                state: { modal: true }
               }}
               style={{ textDecoration: "none" }}
             >

@@ -2,27 +2,19 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './Signup.css'
+
 var classNames = require("classnames");
 
 function Signup({ location }) {
   const { state = {} } = location;
   const { modal } = state;
 
-  let divClasses = classNames({
+  const divClasses = classNames({
     modal: modal
-  });
-  let closeBtnClasses = classNames({
-    position: "fixed",
-    top: 0,
-    right: 0,
-    background: "#fff",
-    width: "2.5rem",
-    height: "2.5rem",
-    padding: 0,
-    border: 0,
-    cursor: "pointer",
-    outline: 0,
-    boxShadow: [0, 0, "0.625rem", "rgba(0, 0, 0, 0.2)"]
+  })
+  const closeBtnClasses = classNames({
+    closeBtnClass: modal
   });
   return (
     <div className={divClasses}>

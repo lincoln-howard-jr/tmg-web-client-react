@@ -11,13 +11,13 @@ function App() {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/login" component={(props) => (
+      <Route path="/login" render={(props) => (
         <>
           <Home {...props} />
           <LoginModal {...props} />
         </>
       )}/>
-      <Route path="/signup" component={(props) => (
+      <Route path="/signup" render={(props) => (
         <>
           <Home {...props} />
           <SignupModal {...props} />
