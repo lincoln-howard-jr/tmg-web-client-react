@@ -51,14 +51,14 @@ export default function AuthHook () {
       setErr (e);
     }
   }
-  
   const clearErr = async () => {
     setErr (null);
   }
 
   // return an object containing resulting data and methods
   return {
-    ret: [meErr, me],
+    meErr,
+    me,
     login,
     signup,
     logout,

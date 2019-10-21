@@ -1,6 +1,6 @@
 import React from 'react'
 import Comment from './Comment';
-import useComments from '../../hooks/commentsHook';
+import useComments from '../../hooks/useComments';
 import PropTypes from 'prop-types';
 
 function CommentList({rootType, rootId}) {
