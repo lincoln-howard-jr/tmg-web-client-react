@@ -1,28 +1,32 @@
 import React, { useState } from "react";
-import { withRouter, Switch, Route, Link } from "react-router-dom";
+import { withRouter, Switch, Route,  } from "react-router-dom";
 import Home from "./components/home/Home";
 import LoginModal from "./components/modals/Login";
 import SignupModal from "./components/modals/Signup";
-import useAuth from "./hooks/authHook";
+import useAuth from "./hooks/useAuth";
 
 function App() {
-  let { ret, login, signup, getMe } = useAuth();
-  let [meErr, me] = ret;
+  let { meErr, me, login, signup, getMe } = useAuth();
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/login" component={(props) => (
+      {
+        !me &&
         <>
-          <Home {...props} />
-          <LoginModal {...props} />
+          <Route path="/login" component={(props) => (
+            <>
+              <Home {...props} />
+              <LoginModal {...props} />
+            </>
+          )}/>
+          <Route path="/signup" component={(props) => (
+            <>
+              <Home {...props} />
+              <SignupModal {...props} />
+            </>
+          )}/>
         </>
-      )}/>
-      <Route path="/signup" component={(props) => (
-        <>
-          <Home {...props} />
-          <SignupModal {...props} />
-        </>
-      )}/>
+      }
     </Switch>
   );
 }

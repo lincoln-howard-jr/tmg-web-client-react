@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
-import useElections from '../../hooks/electionHook';
+import useElections from '../../hooks/useElection';
 
 function CauseList ({mm, dd, yyyy}) {
   let {election, causes, electionsErr, getElection, getCauses} = useElections (mm ,dd, yyyy);
