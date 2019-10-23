@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter, Link } from "react-router-dom";
+import headerImage from './header.png';
 
 function Header(props) {
   let location = props.location;
   return (
     <header>
+      <img src={headerImage}></img>
       <nav>
         <div>
           <h1 id="title-text">The Metropolitan Global</h1>
@@ -41,8 +43,7 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  me: PropTypes.object.isRequired,
-  useHistory: PropTypes.func.isRequired
+  me: PropTypes.object.isRequired
 };
 
 export default withRouter(Header);

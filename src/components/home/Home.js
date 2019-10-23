@@ -4,7 +4,7 @@ import Header from '../header/Header'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';
 
-function Home () {
+function Home ({me}) {
   let now = new Date ();
   let causeListProps = {
     mm: now.getMonth (),
@@ -13,7 +13,7 @@ function Home () {
   };
   return (
     <div>
-    <Header/>
+    <Header me={me} />
     <div className="main-grid">
       <div className="causes mkscroll">
         <CauseList {...causeListProps} />
