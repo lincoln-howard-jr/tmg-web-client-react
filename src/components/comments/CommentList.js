@@ -4,7 +4,7 @@ import useComments from '../../hooks/useComments';
 import PropTypes from 'prop-types';
 
 function CommentList({rootType, rootId}) {
-  let {commentsErr, comments} = useComments (rootType, rootId);
+  let {comments} = useComments (rootType, rootId);
   return (
     <ul className="comments-list">
       {

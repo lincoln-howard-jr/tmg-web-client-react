@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { withRouter, Switch, Route,  } from "react-router-dom";
 import Home from "./components/home/Home";
-import LoginModal from "./components/modals/Login";
-import SignupModal from "./components/modals/Signup";
+import LoginModal from "./components/modals/LoginModal";
+import SignupModal from "./components/modals/SignupModal";
 import useAuth from "./hooks/useAuth";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   let { meErr, me, login, signup, getMe } = useAuth();
@@ -11,7 +12,7 @@ function App() {
     <Switch>
       <Route path="/" exact component={Home} />
       {
-        !me &&
+        !me._id &&
         <>
           <Route path="/login" component={(props) => (
             <>

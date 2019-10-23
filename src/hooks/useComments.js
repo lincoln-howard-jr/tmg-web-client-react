@@ -3,7 +3,7 @@ let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.
 
 // setup comments hook with provided type and id
 // by default retrieves comments on provided object
-export default function CommentsHook (rootType, rootId) {
+export default function useComments (rootType, rootId) {
   const [comments, setComments] = useState ([]);
   const [likes, setLikes] = useState ([]);
   const [commentsErr, setErr] = useState (null);
@@ -20,11 +20,6 @@ export default function CommentsHook (rootType, rootId) {
     }
   }
   
-  // by default runs getComments, runs again when last updated changes
-  useEffect (() => {
-    getComments ();
-  }, []);
-
   // method to create a comment on the object
   const respond = async (comment) => {
     try {
@@ -63,6 +58,11 @@ export default function CommentsHook (rootType, rootId) {
       setErr (e);
     }
   }
+
+  // by default runs getComments, runs again when last updated changes
+  useEffect (() => {
+    getComments ();
+  }, []);
 
   // return state, methods, and 
   return {
