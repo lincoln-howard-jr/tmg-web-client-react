@@ -14,7 +14,7 @@ export default function AuthHook () {
       let data = await response.json ();
       setMe (data);
     } catch (e) {
-      setErr (e);
+      setErr (e.toString ());
     }
   }
 
@@ -26,7 +26,7 @@ export default function AuthHook () {
       let data = await response.json ();
       setMe (data);
     } catch (e) {
-      setErr (e);
+      setErr (e.toString ());
     }
   }
 
@@ -36,7 +36,7 @@ export default function AuthHook () {
       await fetch (`${base}/api/sessions`, {credentials: 'include', method: 'delete'});
       setMe ({});
     } catch (e) {
-      setErr (e);
+      setErr (e.toString ());
     }
   }
 
@@ -48,7 +48,7 @@ export default function AuthHook () {
       let data = await response.json ();
       setMe (data);
     } catch (e) {
-      setErr (e);
+      setErr (e.toString ());
     }
   }
   const clearErr = async () => {

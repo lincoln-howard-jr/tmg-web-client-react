@@ -6,11 +6,16 @@ const defaultOnSubmit = (validity, values) => console.log (validity, values);
 export default function useForm (onSubmit=defaultOnSubmit, validationSchema={}) {
   const [values, setValues] = useState({});
   const [validity, setValidity] = useState ({});
+  const [err, setErr] = useState (null);
 
   // on form submit call on provided submit method
   const handleSubmit = (event) => {
-    if (event) event.preventDefault();
+    event.preventDefault();
+    try {
       onSubmit (validity, values);
+    } catch (e) {
+      setErr (e);
+    }
   };
 
   // handle input change and validation update
@@ -24,10 +29,16 @@ export default function useForm (onSubmit=defaultOnSubmit, validationSchema={}) 
     setValues(values => {return { ...values, [event.target.name]: event.target.value }});
   };
 
+  const clearErr = async () => {
+    setErr (null);
+  }
+
   return {
     handleChange,
     handleSubmit,
     values,
-    validity
+    validity,
+    err,
+    clearErr
   }
 }
