@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import useAuth from '../../hooks/useAuth';
 
-function LoginModal() {
+function LoginModal () {
   const history = useHistory ();
   const {me, login} = useAuth ();
   if (me) history.push ('/');

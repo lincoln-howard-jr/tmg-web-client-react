@@ -3,6 +3,7 @@ import { withRouter, Switch, Route,  } from "react-router-dom";
 import Home from "./components/home/Home";
 import LoginModal from "./components/modals/LoginModal";
 import SignupModal from "./components/modals/SignupModal";
+import FileDialog from './components/modals/FileDialog';
 import useAuth from "./hooks/useAuth";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,14 +17,20 @@ function App() {
         <>
           <Route path="/login" component={(props) => (
             <>
-              <Home {...props} />
+              <Home {...props} me={me} />
               <LoginModal {...props} />
             </>
           )}/>
           <Route path="/signup" component={(props) => (
             <>
-              <Home {...props} />
+              <Home {...props} me={me} />
               <SignupModal {...props} />
+            </>
+          )}/>
+          <Route path="/files" component={(props) => (
+            <>
+              <Home {...props} me={me} />
+              <FileDialog {...props} />
             </>
           )}/>
         </>
