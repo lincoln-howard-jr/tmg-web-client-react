@@ -7,16 +7,17 @@ export default function useComments (rootType, rootId) {
   const [comments, setComments] = useState ([]);
   const [likes, setLikes] = useState ([]);
   const [commentsErr, setErr] = useState (null);
-  
+  const controller = new AbortController ();
+  const signal = controller.signal;
 
   // logic to retrieve comments
   const getComments = async () => {
     try {
-      let response = await fetch (`${base}/api/comments/${rootType}/${rootId}`, {credentials: 'include'});
+      let response = await fetch (`${base}/api/comments/${rootType}/${rootId}`, {credentials: 'include', signal});
       let data = await response.json ();
       setComments (data);
     } catch (e) {
-      setErr (e);
+      // setErr (e);
     }
   }
   
@@ -27,11 +28,12 @@ export default function useComments (rootType, rootId) {
         credentials: 'include',
         method: 'post',
         headers: new Headers ({'Content-Type': 'application/json'}),
-        body: JSON.stringify ({comment})
+        body: JSON.stringify ({comment}),
+        signal
       });
       let data = await response.json ();
     } catch (e) {
-      setErr (e);
+      // setErr (e);
     }
   }
 
@@ -40,30 +42,33 @@ export default function useComments (rootType, rootId) {
     try {
       let response = await fetch (`${base}/api/likes/${rootType}/${rootId}`, {
         credentials: 'include',
-        method: 'post'
+        method: 'post',
+        signal
       });
-      let data = await response.json ();
     } catch (e) {
-      setErr (e);
+      // setErr (e);
     }
   }
 
   // get likes
   const getLikes = async () => {
     try {
-      let response = await fetch (`${base}/api/likes/${rootType}/${rootId}`, {credentials: 'include'});
+      let response = await fetch (`${base}/api/likes/${rootType}/${rootId}`, {credentials: 'include', signal});
       let data = await response.json ();
       setLikes (data);
     } catch (e) {
-      setErr (e);
+      // setErr (e);
     }
   }
 
   // by default runs getComments, runs again when last updated changes
   useEffect (() => {
     getComments ();
+    return () => {
+      console.log ('abort signal');
+      controller.abort ();
+    }
   }, []);
-
   // return state, methods, and 
   return {
     commentsErr,
