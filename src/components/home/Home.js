@@ -3,6 +3,7 @@ import './Home.css';
 import Header from '../header/Header'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';
+import ArticleList from '../articles/ArticleList';
 
 function Home ({me}) {
   let now = new Date ();
@@ -11,6 +12,12 @@ function Home ({me}) {
     dd: now.getDate (),
     yyyy: now.getFullYear ()
   };
+  return (
+    <>
+      <Header me={me} />
+      <ArticleList />
+    </>
+  )
   return (
     <div>
     <Header me={me} />
