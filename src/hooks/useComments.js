@@ -17,7 +17,8 @@ export default function useComments (rootType, rootId) {
       let data = await response.json ();
       setComments (data);
     } catch (e) {
-      // setErr (e);
+      if (!e.name || e.name !== 'AbortError')
+        setErr (e);
     }
   }
   
@@ -33,7 +34,8 @@ export default function useComments (rootType, rootId) {
       });
       let data = await response.json ();
     } catch (e) {
-      // setErr (e);
+      if (!e.name || e.name !== 'AbortError')
+        setErr (e);
     }
   }
 
@@ -46,7 +48,8 @@ export default function useComments (rootType, rootId) {
         signal
       });
     } catch (e) {
-      // setErr (e);
+      if (!e.name || e.name !== 'AbortError')
+        setErr (e);
     }
   }
 
@@ -57,7 +60,8 @@ export default function useComments (rootType, rootId) {
       let data = await response.json ();
       setLikes (data);
     } catch (e) {
-      // setErr (e);
+      if (!e.name || e.name !== 'AbortError')
+        setErr (e);
     }
   }
 
