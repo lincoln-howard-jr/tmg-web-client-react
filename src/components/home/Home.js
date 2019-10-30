@@ -4,6 +4,8 @@ import Header from '../header/Header'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';
 import ArticleList from '../articles/ArticleList';
+import SourceList from '../sources/SourceList'
+import UserList from '../users/UserList';
 
 function Home ({me}) {
   let now = new Date ();
@@ -16,21 +18,10 @@ function Home ({me}) {
     <>
       <Header me={me} />
       <ArticleList />
+      <UserList />
+      <SourceList />
     </>
-  )
-  return (
-    <div>
-    <Header me={me} />
-    <div className="main-grid">
-      <div className="causes mkscroll">
-        <CauseList {...causeListProps} />
-      </div>
-      <div className="mkscroll">
-        <CommentList rootType="forums" rootId="5cb3e6510ba34c080e3d7fe5" />
-      </div>
-    </div>
-    </div>
-  )
-}
+    )
+  }
 
 export default Home;
