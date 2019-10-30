@@ -1,16 +1,16 @@
 import React from "react";
 
 export default function User(props) {
-  const { user } = props;
+  const { user: {first, last, votes: {cast}, createdAt,  lastActive, subscribed, username} } = props;
   return (
     <div>
       <h3>
-        {user.first} {user.last}
+        {first} {last}
       </h3>
-      <h4>Username: {user.username}</h4>
-      {user.subscribed ? <p>Votes Cast: {user.votes.cast}</p> : null}
-      <p>Last Active: {new Date (user.lastActive).toLocaleDateString ()}</p>
-      <p>Member Since: {new Date (user.createdAt).toLocaleDateString ()}</p>
+      <h4>Username: {username}</h4>
+      {subscribed ? <p>Votes Cast: {cast}</p> : null}
+      <p>Last Active: {new Date (lastActive).toLocaleDateString ()}</p>
+      <p>Member Since: {new Date (createdAt).toLocaleDateString ()}</p>
     </div>
   );
 }
