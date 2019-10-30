@@ -10,7 +10,6 @@ const Source = props => {
       <h3>Source: {siteName}</h3>
       <h6>Website: {url}</h6>
       <h6>Followed By: {followingCount}</h6>
-      <CommentList />
     </div>
   );
 };

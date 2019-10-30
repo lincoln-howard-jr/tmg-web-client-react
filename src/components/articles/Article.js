@@ -3,11 +3,11 @@ import CommentList from "../comments/CommentList";
 import { propTypes } from "prop-types";
 
 const Article = props => {
-  const { article, article:{articleMetadata}, article:{articleMetadata: {datePublished}}, article:{userInterpretation}, article:{user} } = props;
+  const { article:{_id}, article:{articleMetadata : {title, author} }, article:{articleMetadata: {datePublished}}, article:{userInterpretation}, article:{user} } = props;
   return (
     <div>
-      <h3>{articleMetadata.title}</h3>
-      <h4>By: {articleMetadata.author}</h4>
+      <h3>{title}</h3>
+      <h4>By: {author}</h4>
       <h6>
         Published on: {datePublished.month + 1}/
         {datePublished.day}/
@@ -21,7 +21,7 @@ const Article = props => {
       <p>
         <b>Tags:</b> {userInterpretation.tags.join(", ")}
       </p>
-      <CommentList rootType={"article"} root_id={article._id} />
+      <CommentList rootType={"source"} root_id={_id} />
     </div>
   );
 };
