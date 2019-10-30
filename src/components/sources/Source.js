@@ -1,6 +1,5 @@
 import React from "react";
 import propTypes from "prop-types";
-import CommentList from "../comments/CommentList";
 
 const Source = props => {
   const { source: { siteName, url, followingCount } } = props;

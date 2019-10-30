@@ -23,11 +23,16 @@ const sourceC = {
 const sources = [sourceA, sourceB, sourceC];
 
 const SourceList = () => {
-  return(
-  <div>
-  {sources.map(source => <Source source={source} />)};
-  </div>
-  )
+  return (
+    <ul>
+      {sources.map(source => (
+        <li>
+          <Source source={source} />
+        </li>
+      ))}
+      ;
+    </ul>
+  );
 };
 
 export default SourceList;
