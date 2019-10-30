@@ -6,6 +6,8 @@ export default function useMedia () {
   const [selected, setSelected] = useState ([]);
   const [media, setMedia] = useState ([])
   const [mediaErr, setMediaErr] = useState (null);
+  const controller = new AbortController ();
+  const signal = controller.signal;
   const mediaBaseUrl = 'https://image-bucket-for-tmg-frontend.s3.amazonaws.com';
   const mediaUrl = (media) => {
     return `${mediaBaseUrl}/${media.user}/${media._id}.${media.extension}`;
@@ -17,7 +19,8 @@ export default function useMedia () {
       let response = await fetch (`${base}/api/files`, {
         credentials: 'include',
         method: 'post',
-        body
+        body,
+        signal
       });
       let data = await response.json ();
       setMedia (media => {return [...media, data]});
@@ -30,7 +33,7 @@ export default function useMedia () {
   // get all media owned by this user
   const getMedia = async () => {
     try {
-      let response = await fetch (`${base}/api/files`, {credentials: 'include'});
+      let response = await fetch (`${base}/api/files`, {credentials: 'include', signal});
       let data = await response.json ();
       setMedia (data);
     } catch (e) {
@@ -40,6 +43,9 @@ export default function useMedia () {
 
   useEffect (() => {
     getMedia ();
+    return () => {
+      controller.abort ();
+    }
   }, []);
 
   return {
