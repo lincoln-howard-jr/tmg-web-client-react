@@ -80,7 +80,7 @@ function ArticleList () {
   return (
     <>
       {
-        placeholderData.map (article => <Article article={article} />) 
+        placeholderData.map (article => <Article key={article._id} article={article} />) 
       }
     </>
   )

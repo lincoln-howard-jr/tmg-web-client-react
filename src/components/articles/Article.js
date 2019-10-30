@@ -3,7 +3,9 @@ import CommentList from "../comments/CommentList";
 import { propTypes } from "prop-types";
 
 const Article = props => {
-  const { article:{_id}, article:{articleMetadata : {title, author} }, article:{articleMetadata: {datePublished}}, article:{userInterpretation}, article:{user} } = props;
+    console.log(props.article)
+    debugger
+  const { article: { _id, articleMetadata: { title, author, datePublished} ,  user,  userInterpretation } } = props;
   return (
     <div>
       <h3>{title}</h3>

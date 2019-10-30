@@ -15,7 +15,7 @@ const sourceB = {
 };
 const sourceC = {
   id: "3",
-  siteName: "MonthlyMonthly",
+  siteName: "Monthly Monthly",
   url: "www.monthlymonthly.com",
   followingCount: 9
 };
@@ -27,10 +27,9 @@ const SourceList = () => {
     <ul>
       {sources.map(source => (
         <li>
-          <Source source={source} />
+          <Source key={source.id} source={source} />
         </li>
       ))}
-      ;
     </ul>
   );
 };
