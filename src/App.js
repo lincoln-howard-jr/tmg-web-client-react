@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter, Switch, Route,  } from "react-router-dom";
 import Home from "./components/home/Home";
+import useAuth from "./hooks/useAuth"
 import LoginModal from "./components/modals/LoginModal";
 import SignupModal from "./components/modals/SignupModal";
 import FileDialog from './components/modals/FileDialog';
-import useAuth from "./hooks/useAuth";
-import 'bootstrap/dist/css/bootstrap.min.css';
+;
 
 function App() {
   let { meErr, me, login, signup, getMe } = useAuth();

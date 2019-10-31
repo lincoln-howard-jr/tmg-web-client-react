@@ -3,6 +3,10 @@ import Comment from './Comment';
 import useComments from '../../hooks/useComments';
 import PropTypes from 'prop-types';
 
+// <CommentList rootType="articles" rootId={article._id} />
+
+// const comments [{}]
+
 function CommentList({rootType, rootId}) {
   let {comments} = useComments (rootType, rootId);
   return (
