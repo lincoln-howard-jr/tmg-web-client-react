@@ -8,6 +8,7 @@ function LoginModal () {
   const history = useHistory ();
   const {me, login} = useAuth ();
   if (me) history.push ('/');
+  
   const onSubmit = async (validity, values) => {
     console.log (validity, values);
     await login (values);

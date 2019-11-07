@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function User(props) {
-  const { user: {first, last, votes: {cast}, createdAt,  lastActive, subscribed, username} } = props;
+  const { user: {first, last, votes: {cast}, createdAt, lastActive, subscribed, username} } = props;
   return (
     <div>
       <h3>

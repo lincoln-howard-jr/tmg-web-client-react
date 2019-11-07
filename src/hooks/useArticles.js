@@ -12,7 +12,7 @@ export default function ArticlesHook () {
   // get all articles
   const getArticles = async () => {
     try {
-      let response = await fetch (`${base}/api/articles`. {credentials: 'include', signal});
+      let response = await fetch (`${base}/api/articles`, {credentials: 'include', signal});
       let data = await response.json ();
       setArticles (data);
     } catch (e) {
