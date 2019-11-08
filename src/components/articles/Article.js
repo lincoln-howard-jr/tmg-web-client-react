@@ -3,27 +3,25 @@ import CommentList from "../comments/CommentList";
 import { propTypes } from "prop-types";
 
 const Article = props => {
-    console.log(props.article)
-    debugger
-  const { article: { _id, articleMetadata: { title, author, datePublished} ,  user,  userInterpretation } } = props;
+  const { article: { _id, articleMetadata: { title, author, datePublished: {day, month, year}} ,  user:{username},  userInterpretation:{summary, tags} } } = props;
   return (
     <div>
       <h3>{title}</h3>
       <h4>By: {author}</h4>
       <h6>
-        Published on: {datePublished.month + 1}/
-        {datePublished.day}/
-        {datePublished.year}
+        Published on: {month + 1}/
+        {day}/
+        {year}
       </h6>
       <hr />
-      <h6>Shared by: {user.username}</h6>
+      <h6>Shared by: {username}</h6>
       <p>
-        <b>Summary:</b> {userInterpretation.summary}
+        <b>Summary:</b> {summary}
       </p>
       <p>
-        <b>Tags:</b> {userInterpretation.tags.join(", ")}
+        <b>Tags:</b> {tags.join(", ")}
       </p>
-      <CommentList rootType={"source"} root_id={_id} />
+      <CommentList rootType={"comment"} root_id={_id} />
     </div>
   );
 };

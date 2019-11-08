@@ -7,7 +7,7 @@ import ArticleList from '../articles/ArticleList';
 import SourceList from '../sources/SourceList'
 import UserList from '../users/UserList';
 
-function Home ({me}) {
+function Home ({ me }) {
   let now = new Date ();
   let causeListProps = {
     mm: now.getMonth (),
