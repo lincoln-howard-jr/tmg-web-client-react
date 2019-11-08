@@ -1,24 +1,16 @@
-import React from 'react'
-import propTypes from 'react-proptypes'
+import React from "react";
+import Header from "./Header";
+import SharesFeed from "./SharesFeed";
+import Sidebar from "./Sidebar";
 
-const Profile = (p) => {
-        <div>
-            jhgjhgjh
-        </div>
-    
-}
+const Profile = () => {
+  return (
+    <div>
+      <Header />
+      <SharesFeed />
+      <Sidebar />
+    </div>
+  );
+};
 
-Profile.propTypes = {
-    avatar: propTypes.isRequired(string),
-    me: propTypes.isRequired(object)
-}
-
-export default Profile 
-
-//Personal info sidebar
-//Member Since header
-///Cause Modal (like a AirBnB listing)
-//Friends Count Text
-//SharedArticles array
-//Recent activity
-
+export default Profile;
