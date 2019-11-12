@@ -21,12 +21,14 @@ export default function useForm (onSubmit=defaultOnSubmit, validationSchema={}) 
   // handle input change and validation update
   const handleChange = (event) => {
     event.persist();
-    if (validationSchema [event.target.name]) {
-      let isValid = validationSchema [event.target.name] (event.target.value);
-      setValidity (validity => {return { ...validity, [event.target.name]: isValid }});
+    let value = event.target.value;
+    let name = event.target.name;
+    if (validationSchema [name]) {
+      let isValid = validationSchema [name] (value);
+      setValidity (validity => {return { ...validity, [name]: isValid }});
       event.target.setCustomValidity ((isValid ? 'Is invalid' : ''));
     }
-    setValues(values => {return { ...values, [event.target.name]: event.target.value }});
+    setValues(values => {return { ...values, [name]: value }});
   };
 
   const clearErr = async () => {
