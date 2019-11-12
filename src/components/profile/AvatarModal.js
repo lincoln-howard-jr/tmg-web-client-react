@@ -3,7 +3,7 @@ import classNames from 'classnames'
 const AvatarModal = props => {
 
   let avatarClasses = classNames({
-    'avatar-img':true
+    'avatar':true
   })
 
   const { avatar } = props;

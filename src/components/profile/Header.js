@@ -1,12 +1,12 @@
 import React from "react";
 import classNames from 'classnames'
-import HeaderContent from "./HeaderContent";
 import AvatarModal from "./AvatarModal";
+import HeaderContent from "./HeaderContent";
 import useAuth from '../../hooks/useAuth'
 
 
 let headerClasses = classNames({
-  'header':true
+  'header-container':true,
 })
 
 const Header = () => {
@@ -16,7 +16,7 @@ const Header = () => {
     <div className={headerClasses}>
       <AvatarModal avatar={profilePicture}/>
       <HeaderContent />
-    </div>
+      </div>
   )
 }
 

@@ -13,19 +13,30 @@ div button {
 }
 
 .main-container {
-    border: 5px solid rgb(248, 4, 4);
+    border: 5px solid red;
+    flex-direction: column;
+    display: flex;
+
 }
 
-.avatar-img {
+.avatar {
     border: 10px solid rgb(243, 121, 141)
 }
 
 .header {
-    border: 10px solid rgb(233, 211, 10)
+    border: 10px solid rgb(233, 211, 10);
+    width: 100%;
 }
 
 .shares-feed {
     border: 10px solid black
+}
+
+.header-container {
+    border: 10px solid black;
+    display:flex;
+    flex-direction:row;
+
 }
 
  /*End debugging styles*/
