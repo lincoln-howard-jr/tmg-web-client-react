@@ -7,14 +7,20 @@ import useAuth from '../../hooks/useAuth';
 function LoginModal () {
   const history = useHistory ();
   const {me, login} = useAuth ();
-  if (me) history.push ('/');
+  if (me._id) history.push ('/');
   
+  const validator = {
+    password: (value) => {
+      return value.length > 7;
+    }
+  }
+
   const onSubmit = async (validity, values) => {
     console.log (validity, values);
     await login (values);
     history.push ('/');
   }
-  let {err, handleChange, handleSubmit} = useForm ({}, onSubmit);
+  let {err, handleChange, handleSubmit} = useForm (validator, onSubmit);
   return (
     <Popup open={true}>
       <span>{err}</span>

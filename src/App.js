@@ -43,7 +43,13 @@ function App() {
         </>
         
       }
-    
+
+      {
+        !!me._id &&
+        <>
+          <Route path="/profile" render={(props) => (<Profile {...props} />)} />
+        </>
+      }
     </Switch>
   );
 }

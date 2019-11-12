@@ -1,0 +1,43 @@
+ /*For debugging */
+
+ div {
+    border: 5px solid darkblue
+}
+
+ div p {
+    border: 5px solid purple 
+}
+
+div button {
+    border: 5px solid burlywood
+}
+
+.main-container {
+    border: 5px solid red;
+    flex-direction: column;
+    display: flex;
+
+}
+
+.avatar {
+    border: 10px solid rgb(243, 121, 141)
+}
+
+.header {
+    border: 10px solid rgb(233, 211, 10);
+    width: 100%;
+}
+
+.shares-feed {
+    border: 10px solid black
+}
+
+.header-container {
+    border: 10px solid black;
+    display:flex;
+    flex-direction:row;
+
+}
+
+ /*End debugging styles*/
+

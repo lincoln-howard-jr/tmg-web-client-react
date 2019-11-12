@@ -1,17 +1,22 @@
 import React from "react";
-import HeaderContent from "./HeaderContent";
+import classNames from 'classnames'
 import AvatarModal from "./AvatarModal";
+import HeaderContent from "./HeaderContent";
 import useAuth from '../../hooks/useAuth'
 
+
+let headerClasses = classNames({
+  'header-container':true,
+})
 
 const Header = () => {
   const {me:{profilePicture}} = useAuth()
 
   return (
-    <div>
+    <div className={headerClasses}>
       <AvatarModal avatar={profilePicture}/>
       <HeaderContent />
-    </div>
+      </div>
   )
 }
 
