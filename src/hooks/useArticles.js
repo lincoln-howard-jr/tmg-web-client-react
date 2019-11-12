@@ -10,9 +10,9 @@ export default function ArticlesHook () {
   const signal = controller.signal;
   
   // get all articles
-  const getArticles = async () => {
+  const getArticles = async (query) => {
     try {
-      let response = await fetch (`${base}/api/articles`. {credentials: 'include', signal});
+      let response = await fetch (`${base}/api/articles`, {credentials: 'include', signal});
       let data = await response.json ();
       setArticles (data);
     } catch (e) {
@@ -41,5 +41,5 @@ export default function ArticlesHook () {
 
   useEffect (() => () => controller.abort ());
 
-  return {getArticles, shareArticle}
+  return {articles, getArticles, shareArticle}
 }
