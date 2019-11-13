@@ -5,9 +5,21 @@ let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.
 export default function useAuth () {
   const [me, setMe] = useState ({});
   const [meErr, setErr] = useState (null);
+  const [user, setUser] = useState (null);
   const controller = new AbortController ();
   const signal = controller.signal;
   
+  const getUserById = async (id) => {
+    try {
+      let response = await fetch (`${base}/api/users/${id}`, {credentials: 'include', signal});
+      let data = await response.json ();
+      setUser (data);
+    } catch (e) {
+      if (!e.name || !e.name === 'AbortError')
+        setErr (e);
+    }
+  }
+
   // user login method
   const login = async (obj) => {
     try {
@@ -65,6 +77,7 @@ export default function useAuth () {
 
   // return an object containing resulting data and methods
   return {
+    getUserById,
     meErr,
     me,
     login,
