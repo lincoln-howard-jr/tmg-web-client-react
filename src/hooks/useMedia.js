@@ -41,6 +41,20 @@ export default function useMedia () {
     }
   }
 
+  const isSelected = (target) => {
+    return selected.filter (({_id})=>_id===target._id).length
+  }
+
+  const toggleSelected = (target) => {
+    return () => {
+      if (isSelected (target)) {
+        setSelected (selected => selected.filter (({_id}) => _id!==target._id));
+      } else {
+        setSelected (selected => [...selected, target]);
+      }
+    }
+  }
+
   useEffect (() => {
     getMedia ();
     return () => {
@@ -51,6 +65,8 @@ export default function useMedia () {
   return {
     mediaUrl,
     selected,
+    isSelected,
+    toggleSelected,
     media,
     mediaErr,
     upload,
