@@ -2,19 +2,24 @@ import React from "react";
 import Header from "./Header";
 import SharesFeed from "./SharesFeed";
 import Sidebar from "./Sidebar";
-import styles from './Profile.css'
-let classNames = require('classnames')
+import styles from "./Profile.css";
+import classNames from 'classnames'
 
-let mainContainer = classNames({
-  'main-container':true
-})
+let mainClasses = classNames({
+  "main-container": true
+});
+
+let feedSidebarClasses = classNames({
+  "feed-sidebar-container": true});
 
 const Profile = () => {
   return (
-    <div className={mainContainer}>
+    <div className={mainClasses}>
       <Header />
-      <SharesFeed />
-      <Sidebar />
+      <div className={feedSidebarClasses}>
+        <SharesFeed />
+          <Sidebar />
+      </div>
     </div>
   );
 };

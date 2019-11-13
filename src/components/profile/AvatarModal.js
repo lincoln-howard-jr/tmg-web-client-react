@@ -10,9 +10,8 @@ const AvatarModal = props => {
   const defaultAvatar = "https://cdn.staticneo.com/w/avatar/thumb/c/ce/Aang.png/200px-Aang.png";
   let src = avatar ? avatar : defaultAvatar;
   return (
-    <div className={avatarClasses}>
-      <img src={src} />
-    </div>
+      <img className={avatarClasses} src={src} />
+ 
   );
 };
 
