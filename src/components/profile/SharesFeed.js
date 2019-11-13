@@ -5,12 +5,12 @@ import ArticleList from "../articles/ArticleList";
 const SharesFeed = () => {
 
   let feedClasses = classNames({
-    'shares-feed':true
+    'feed-container':true
   })
 
   return (
     <div className={feedClasses}>
-      <ArticleList />
+      <ArticleList/>
     </div>
   );
 };

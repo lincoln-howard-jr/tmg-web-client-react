@@ -6,7 +6,7 @@ import BioDetails from "./BioDetails";
 //add click handler to change content to Bio Editor
 
 let contentClasses = classNames({
-  'header':true
+  'header-content':true
 })
 
 const HeaderContent = () => {

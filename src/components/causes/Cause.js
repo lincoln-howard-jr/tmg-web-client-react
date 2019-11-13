@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-function Cause() {
+const Cause = () => {
   return (
-    "Div"
+    <li>Cause</li>
   )
 }
 
