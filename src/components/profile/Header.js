@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from 'classnames'
-import AvatarModal from "./AvatarModal";
+import AvatarModal from "../modals/AvatarModal";
 import HeaderContent from "./HeaderContent";
 import useAuth from '../../hooks/useAuth'
 

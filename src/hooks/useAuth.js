@@ -1,14 +1,12 @@
 import {useState, useEffect} from 'react';
 let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
 
-// auth hooks
 export default function useAuth () {
   const [me, setMe] = useState ({});
   const [meErr, setErr] = useState (null);
-  const controller = new AbortController ();
-  const signal = controller.signal;
+  const abortController = new AbortController ();
+  const signal = abortController.signal;
   
-  // user login method
   const login = async (obj) => {
     try {
       if (me._id) return;
@@ -21,7 +19,6 @@ export default function useAuth () {
     }
   }
 
-  // user signup
   const signup = async (obj) => {
     if (me._id) return;
     try {
@@ -34,7 +31,6 @@ export default function useAuth () {
     }
   }
 
-  // logout
   const logout = async (obj) => {
     try {
       await fetch (`${base}/api/sessions`, {credentials: 'include', method: 'delete', signal});
@@ -45,7 +41,6 @@ export default function useAuth () {
     }
   }
 
-  // get logged in user
   const getMe = async () => {
     try {
       if (me._id || meErr) return;
@@ -61,16 +56,15 @@ export default function useAuth () {
     setErr (null);
   }
 
-  useEffect (() => () => controller.abort ());
+  useEffect (() => () => abortController.abort ());
 
-  // return an object containing resulting data and methods
   return {
-    meErr,
+    getMe,
     me,
     login,
-    signup,
     logout,
-    getMe,
-    clearErr
+    signup,
+    clearErr,
+    meErr,
   }
 }

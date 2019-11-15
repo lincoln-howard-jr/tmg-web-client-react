@@ -1,8 +1,4 @@
- /*For debugging */
 
-.avatar {
-    border: 3px solid crimson
-}
 .header-container {
     border: 5px solid forestgreen;
     display:flex;
@@ -10,7 +6,10 @@
 }
 
 .header-content {
-    border: 3px solid crimson; 
+    align-items: center;
+    border: 3px solid crimson;
+    display:flex;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -33,17 +32,12 @@
 .feed-container{
     border: 3px solid crimson;
     width: 100%;
-    height: 100%;
 }
 
 .sidebar-container {
     border:3px solid crimson;
     display: flex;
     flex-direction: column;
-    height:100%;
     width:30%;
 }
-
-
- /*End debugging styles*/
 

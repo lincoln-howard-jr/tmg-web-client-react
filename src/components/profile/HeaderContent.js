@@ -2,19 +2,22 @@ import React from "react";
 import classNames from 'classnames'
 import BioEditor from "./BioEditor";
 import BioDetails from "./BioDetails";
-
-//add click handler to change content to Bio Editor
-
-let contentClasses = classNames({
-  'header-content':true
-})
+import useAuth from "../../hooks/useAuth"
+import {useParams} from 'react-router-dom';
 
 const HeaderContent = () => {
+  const {id} = useParams ();
+  const {me} = useAuth()
+  const isOwnProfile = id === me._id;
+
+  let contentClasses = classNames({
+    'header-content':true
+  })
   return (
     <div className={contentClasses}>
-      <BioEditor />
-      <BioDetails />
-      <button>Edit</button>
+      {isOwnProfile ? <> <BioEditor /> <button>Edit</button></>: <BioDetails /> 
+      }
+    
     </div>
   );
 };

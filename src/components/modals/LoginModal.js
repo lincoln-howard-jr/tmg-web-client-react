@@ -14,7 +14,7 @@ function LoginModal () {
       return value.length > 7;
     }
   }
-
+  
   const onSubmit = async (validity, values) => {
     console.log (validity, values);
     await login (values);

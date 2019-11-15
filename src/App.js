@@ -35,7 +35,7 @@ function App() {
               <FileDialog {...props} />
             </>
           )}/>
-               <Route path="/profile" render={(props) => (
+               <Route path="/profile/:id" render={(props) => (
               
               <Profile {...props} />
    

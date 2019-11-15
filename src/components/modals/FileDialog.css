@@ -1,0 +1,28 @@
+.cancel-btn {
+    position:relative;
+    left:60px;
+    height:40px;
+    width:40px;
+    padding: 21px 94px 45px 42px;
+  }
+
+.upload-btn {
+    height:40px;
+    width:40px;
+    padding: 21px 94px 45px 42px;
+    margin-right:40%;    
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 28px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+}
