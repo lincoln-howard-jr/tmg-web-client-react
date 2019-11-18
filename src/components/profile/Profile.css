@@ -14,11 +14,16 @@
 }
 
 .main-container {
+    background-color: #0074D9;
     border: 5px solid blue;
     display: flex;
     flex-direction: column;
     height: -webkit-fill-available;
     width: -webkit-fill-available;
+}
+
+.main-container > div {
+    background-color:rgb(255, 250, 245);
 }
 
 .feed-sidebar-container{

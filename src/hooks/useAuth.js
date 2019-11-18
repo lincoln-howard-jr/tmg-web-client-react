@@ -4,6 +4,8 @@ let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.
 export default function useAuth () {
   const [me, setMe] = useState ({});
   const [meErr, setErr] = useState (null);
+  const [user, setUser] = useState({});
+  const [userErr, setUserErr] = useState(null);
   const abortController = new AbortController ();
   const signal = abortController.signal;
   
@@ -52,14 +54,28 @@ export default function useAuth () {
         setErr (e);
     }
   }
+
+  const getUser = async id => {
+    try {
+      if (user._id || userErr) return;
+      const response = await fetch(`${base}/api/users`, {credentials: 'include', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify (id), signal});
+      const data = await response.json();
+      setUser(data);
+    } catch (e) {
+      setUserErr(e);
+    }
+  };
+
   const clearErr = async () => {
     setErr (null);
+    setUserErr(null)
   }
 
   useEffect (() => () => abortController.abort ());
 
   return {
     getMe,
+    getUser,
     me,
     login,
     logout,

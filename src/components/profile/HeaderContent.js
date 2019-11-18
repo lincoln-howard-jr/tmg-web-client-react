@@ -1,23 +1,23 @@
 import React from "react";
 import classNames from 'classnames'
-import BioEditor from "./BioEditor";
+import BioEditor from "../modals/BioEditor";
 import BioDetails from "./BioDetails";
-import useAuth from "../../hooks/useAuth"
-import {useParams} from 'react-router-dom';
+import FollowBtn from './FollowBtn'
 
-const HeaderContent = () => {
-  const {id} = useParams ();
-  const {me} = useAuth()
-  const isOwnProfile = id === me._id;
-
+const HeaderContent = ({canEdit, editing, editBio}) => {
   let contentClasses = classNames({
     'header-content':true
   })
+
   return (
     <div className={contentClasses}>
-      {isOwnProfile ? <> <BioEditor /> <button>Edit</button></>: <BioDetails /> 
-      }
-    
+      {!!canEdit? <><BioDetails/>  <FollowBtn/></>  : 
+      ( 
+        editing? <> <BioDetails/> <button onClick={editBio}>Edit</button></> :
+        <> <BioEditor/> <button onClick={editBio}>Cancel</button></>
+
+         )
+         }
     </div>
   );
 };

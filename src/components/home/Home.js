@@ -1,5 +1,4 @@
 import React from 'react';
-import './Home.css';
 import Header from '../header/Header'
 import CauseList from '../causes/CauseList';
 import CommentList from '../comments/CommentList';
@@ -8,6 +7,7 @@ import SourceList from '../sources/SourceList'
 import UserList from '../users/UserList';
 
 function Home ({ me }) {
+
   let now = new Date ();
   let causeListProps = {
     mm: now.getMonth (),

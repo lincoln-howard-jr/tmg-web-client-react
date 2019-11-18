@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter, Switch, Route } from "react-router-dom";
 import FileDialog from './components/modals/FileDialog';
 import Home from "./components/home/Home";
-import LoginModal from "./components/modals/LoginModal";
+import Login from "./components/modals/Login";
 import Profile from './components/profile/Profile'
-import SignupModal from "./components/modals/SignupModal";
+import Signup from "./components/modals/Signup";
 import useAuth from './hooks//useAuth'
 ;
 
@@ -20,13 +20,13 @@ function App() {
           <Route path="/login" render={(props) => (
             <>
               <Home {...props} me={me} />
-              <LoginModal {...props} />
+              <Login {...props} />
             </>
           )}/>
           <Route path="/signup" render={(props) => (
             <>
               <Home {...props} me={me} />
-              <SignupModal {...props} />
+              <Signup {...props} />
             </>
           )}/>
           <Route path="/files" render={(props) => (

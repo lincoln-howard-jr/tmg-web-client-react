@@ -2,7 +2,11 @@ import React from 'react'
 
 const BioDetails = () => {
     return (
-       <p>Bio details....</p>
+       <p>
+           Born and raised 
+           thug
+           for life.
+       </p>
     )
 }
 

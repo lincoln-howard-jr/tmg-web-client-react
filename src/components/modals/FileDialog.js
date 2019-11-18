@@ -16,7 +16,7 @@ const FileDialog = () => {
   const { handleSubmit, handleChange } = useForm(onSubmit);
   return (
     <Popup
-      trigger={<button className="upload-btn">Update</button>}
+      trigger={<button className="upload-btn">Upload</button>}
       closeOnDocumentClick
       modal
     >
