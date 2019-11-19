@@ -4,20 +4,20 @@ import BioEditor from "../modals/BioEditor";
 import BioDetails from "./BioDetails";
 import FollowBtn from './FollowBtn'
 
-const HeaderContent = ({canEdit, editing, editBio}) => {
+const HeaderContent = ({myProfile}) => {
   let contentClasses = classNames({
     'header-content':true
   })
 
+//Add conditional check after first half of ternary for if user already follows current profile
+//If true, render the unfollow button.
+//Make backend route for followers
+
   return (
     <div className={contentClasses}>
-      {!!canEdit? <><BioDetails/>  <FollowBtn/></>  : 
+      {!myProfile? <><BioDetails/>  <FollowBtn/></>  : 
       ( 
-        editing? <> <BioDetails/> <button onClick={editBio}>Edit</button></> :
-        <> <BioEditor/> <button onClick={editBio}>Cancel</button></>
-
-         )
-         }
+       <><BioDetails/><BioEditor/></> )}
     </div>
   );
 };

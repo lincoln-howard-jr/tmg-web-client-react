@@ -18,7 +18,7 @@ const BioEditor = () => {
       const {err, values, handleChange, handleSubmit} = useForm(validator, onSubmit)
 
     return (
-      <Popup trigger={<button>Edit</button>} modal>
+      <Popup trigger={<button>Edit Description</button>} modal>
         {close => (
           <>
             <div>

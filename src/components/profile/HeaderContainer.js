@@ -9,7 +9,9 @@ const HeaderContainer = () => {
   const {me, me:{profilePicture}} = useAuth()
   const {id} = useParams ();
 
-  const isProfileOwner = id === me._id;
+//testing edit, default to true
+
+  const isProfileOwner = true
 
 let headerClasses = classNames({
   'header-container':true,
@@ -17,7 +19,7 @@ let headerClasses = classNames({
   return (
     <div className={headerClasses}>
       <AvatarModal avatar={profilePicture}/>
-      <HeaderContent canEdit={isProfileOwner} />
+      <HeaderContent myProfile={isProfileOwner} />
       </div>
   )
 }
