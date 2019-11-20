@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import AvatarModal from "../modals/Avatar";
 import HeaderContent from "./HeaderContent";
 import GuestNavBar from '../header/GuestNavBar'
+import Search from '../common/Search'
 import UserNavBar from '../header/UserNavBar'
 import useAuth from '../../hooks/useAuth'
 import {useParams} from 'react-router-dom'
@@ -17,6 +18,7 @@ let headerClasses = classNames({
 })
   return (
     <>
+    <Search/>
     {!me? <UserNavBar/> : <GuestNavBar/>}
     <div className={headerClasses}>
       <AvatarModal avatar={profilePicture}/>

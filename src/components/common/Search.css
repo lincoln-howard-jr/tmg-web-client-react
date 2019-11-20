@@ -1,0 +1,7 @@
+label {
+    align-self: flex-end;
+}
+
+span {
+    display:flex;
+}

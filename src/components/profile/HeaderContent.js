@@ -10,12 +10,14 @@ const HeaderContent = ({myProfile}) => {
 
   const me = useAuth()
   let contentClasses = classNames({
-    'header-content':true
+    'header-content':true,
   })
 
+
+  //pending /users/:id route
   return (
     <div className={contentClasses}>
-      {myProfile? <><BioDetails/>  {me? <FollowBtn/> : <UnfollowBtn/>} </>  : 
+      {myProfile? <><h4>John Doe</h4><BioDetails/>  {me? <FollowBtn/> : <UnfollowBtn/>} </>  : 
       ( 
        <><BioDetails/><BioEditor/></> )}
     </div>
