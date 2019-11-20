@@ -3,9 +3,7 @@ import React from 'react'
 const BioDetails = () => {
     return (
        <p>
-           Born and raised 
-           thug
-           for life.
+        ------100 char bio---------Goes-----------Here-------------------- 
        </p>
     )
 }

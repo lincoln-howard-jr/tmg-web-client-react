@@ -74,9 +74,10 @@ export default function useAuth () {
   useEffect (() => () => abortController.abort ());
 
   return {
+    me,
+    user,
     getMe,
     getUser,
-    me,
     login,
     logout,
     signup,

@@ -2,25 +2,27 @@ import React from "react";
 import classNames from 'classnames'
 import AvatarModal from "../modals/Avatar";
 import HeaderContent from "./HeaderContent";
+import GuestNavBar from '../header/GuestNavBar'
+import UserNavBar from '../header/UserNavBar'
 import useAuth from '../../hooks/useAuth'
 import {useParams} from 'react-router-dom'
 
 const HeaderContainer = () => {
   const {me, me:{profilePicture}} = useAuth()
   const {id} = useParams ();
-
-//testing edit, default to true
-
   const isProfileOwner = true
 
 let headerClasses = classNames({
-  'header-container':true,
+  'flex-header-container':true,
 })
   return (
+    <>
+    {!me? <UserNavBar/> : <GuestNavBar/>}
     <div className={headerClasses}>
       <AvatarModal avatar={profilePicture}/>
       <HeaderContent myProfile={isProfileOwner} />
       </div>
+      </>
   )
 }
 

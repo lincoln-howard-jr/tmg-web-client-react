@@ -1,4 +1,9 @@
-.header-img{
+img {
+    height:150px;
+}
+
+.header-img {
     height:300px;
     width:300px;
 }
+

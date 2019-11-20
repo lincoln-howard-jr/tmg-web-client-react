@@ -1,21 +1,21 @@
 
-.header-container {
-    border: 5px solid rgb(139, 34, 34);
+.flex-header-container {
+    border: 5px solid blue;
     display:flex;
     flex-direction:row;
 }
 
 .header-content {
     align-items: center;
-    border: 3px solid crimson;
+    border: 3px solid blue;
     display:flex;
     flex-direction: column;
     width: 100%;
 }
 
 .main-container {
-    background-color: rgb(255, 255, 255);
-    border: 5px solid rgb(255, 0, 0);
+    background-color: white;
+    border: 3px solid blue;
     display: flex;
     flex-direction: column;
     height: -webkit-fill-available;
@@ -23,11 +23,11 @@
 }
 
 .main-container > div {
-    background-color:rgb(255, 250, 245);
+    background-color:white;
 }
 
 .feed-sidebar-container{
-    border: 3px solid rgb(139, 34, 34);
+    border: 3px solid blue;
     display: flex;  
     flex-direction: row;
     height:100%;
@@ -35,12 +35,12 @@
 }
 
 .feed-container{
-    border: 3px solid crimson;
+    border: 3px solid blue;
     width: 100%;
 }
 
 .sidebar-container {
-    border:3px solid crimson;
+    border:3px solid blue;
     display: flex;
     flex-direction: column;
     width:30%;

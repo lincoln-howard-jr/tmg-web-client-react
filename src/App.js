@@ -6,8 +6,7 @@ import Home from "./components/home/Home";
 import Login from "./components/modals/Login";
 import Profile from './components/profile/Profile'
 import Signup from "./components/modals/Signup";
-import useAuth from './hooks//useAuth'
-;
+import useAuth from './hooks//useAuth';
 
 function App() {
   let { meErr, me, login, signup, getMe } = useAuth();
