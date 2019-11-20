@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react';
 let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
 
-// auth hooks
 export default function useAuth () {
   const [me, setMe] = useState ({});
   const [meErr, setErr] = useState (null);
-  const [user, setUser] = useState (null);
-  const controller = new AbortController ();
-  const signal = controller.signal;
+  const [user, setUser] = useState({});
+  const [userErr, setUserErr] = useState(null);
+  const abortController = new AbortController ();
+  const signal = abortController.signal;
   
   const getUserById = async (id) => {
     try {
@@ -33,7 +33,6 @@ export default function useAuth () {
     }
   }
 
-  // user signup
   const signup = async (obj) => {
     if (me._id) return;
     try {
@@ -46,7 +45,6 @@ export default function useAuth () {
     }
   }
 
-  // logout
   const logout = async (obj) => {
     try {
       await fetch (`${base}/api/sessions`, {credentials: 'include', method: 'delete', signal});
@@ -57,7 +55,6 @@ export default function useAuth () {
     }
   }
 
-  // get logged in user
   const getMe = async () => {
     try {
       if (me._id || meErr) return;
@@ -69,21 +66,36 @@ export default function useAuth () {
         setErr (e);
     }
   }
+
+  const getUser = async id => {
+    try {
+      if (user._id || userErr) return;
+      const response = await fetch(`${base}/api/users`, {credentials: 'include', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify (id), signal});
+      const data = await response.json();
+      setUser(data);
+    } catch (e) {
+      setUserErr(e);
+    }
+  };
+
   const clearErr = async () => {
     setErr (null);
+    setUserErr(null)
   }
 
-  useEffect (() => () => controller.abort ());
+  useEffect (() => () => abortController.abort ());
 
-  // return an object containing resulting data and methods
   return {
     getUserById,
     meErr,
     me,
-    login,
-    signup,
-    logout,
+    user,
     getMe,
-    clearErr
+    getUser,
+    login,
+    logout,
+    signup,
+    clearErr,
+    meErr,
   }
 }

@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useForm from '../../hooks/useForm';
 
-function SignupModal() {
+function Signup() {
   const history = useHistory ();
   const {me, authErr, signup} = useAuth ();
   if (me._id) history.push ('/me');
@@ -44,4 +44,4 @@ function SignupModal() {
   )
 }
 
-export default SignupModal
+export default Signup

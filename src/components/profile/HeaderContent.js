@@ -1,20 +1,25 @@
 import React from "react";
 import classNames from 'classnames'
-import BioEditor from "./BioEditor";
+import BioEditor from "../modals/BioEditor";
 import BioDetails from "./BioDetails";
+import FollowBtn from './FollowBtn'
+import UnfollowBtn from './UnfollowBtn'
+import useAuth from '../../hooks/useAuth'
 
-//add click handler to change content to Bio Editor
+const HeaderContent = ({myProfile}) => {
 
-let contentClasses = classNames({
-  'header-content':true
-})
+  const me = useAuth()
+  let contentClasses = classNames({
+    'header-content':true,
+  })
 
-const HeaderContent = () => {
+
+  //pending /users/:id route
   return (
     <div className={contentClasses}>
-      <BioEditor />
-      <BioDetails />
-      <button>Edit</button>
+      {myProfile? <><h4>John Doe</h4><BioDetails/>  {me? <FollowBtn/> : <UnfollowBtn/>} </>  : 
+      ( 
+       <><BioDetails/><BioEditor/></> )}
     </div>
   );
 };

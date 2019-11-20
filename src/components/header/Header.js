@@ -1,43 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter, Link } from "react-router-dom";
 import headerImage from './header.png';
+import GuestNavBar from './GuestNavBar'
+import UserNavBar from "./UserNavBar";
+import Search from "../common/Search"
+import useAuth from '../../hooks/useAuth'
+import styles from './Header.css'
+import classNames from 'classnames'
 
-function Header(props) {
-  let location = props.location;
+function Header() {
+
+  const imgClasses = classNames({
+    'header-img':true
+    })
+  
+  const {me} = useAuth()
+    
   return (
     <header>
-      <img src={headerImage}></img>
-      <nav>
-        <div>
-          <h1 id="title-text">The Metropolitan Global</h1>
-        </div>
-        <div>
-          <button>
-            <Link
-              to={{
-                pathname: "/login",
-                state: { modal: true, background: location }
-              }}
-              style={{ textDecoration: "none" }}
-            >
-              Login
-            </Link>
-          </button>
-
-          <button>
-            <Link
-              to={{
-                pathname: "/signup",
-                state: { modal: true, background: location }
-              }}
-              style={{ textDecoration: "none" }}
-            >
-              Signup
-            </Link>
-          </button>
-        </div>
-      </nav>
+      <Search/>
+      {!me? <UserNavBar /> : <GuestNavBar /> }
     </header>
   );
 }
@@ -46,4 +28,4 @@ Header.propTypes = {
   me: PropTypes.object.isRequired
 };
 
-export default withRouter(Header);
+export default Header;

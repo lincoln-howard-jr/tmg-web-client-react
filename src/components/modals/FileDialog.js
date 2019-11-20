@@ -1,40 +1,31 @@
 import React, {useRef} from 'react'
 import Popup from 'reactjs-popup';
+import styles from './FileDialog.css';
 import useMedia from '../../hooks/useMedia';
 import useForm from '../../hooks/useForm';
 
-function FileDialog () {
-  const formRef = useRef (null);
-  let {selected, mediaErr, upload} = useMedia ();
+const FileDialog = () => {
+  const formRef = useRef(null);
+  const { upload } = useMedia();
+  
   const onSubmit = () => {
-    let body = new FormData (formRef.current);
-    upload (body);
-  }
-  let {handleSubmit, handleChange} = useForm (onSubmit);
+    const body = new FormData(formRef.current);
+    upload(body);
+  };
+
+  const { handleSubmit, handleChange } = useForm(onSubmit);
   return (
-    <Popup open={true}>
-      <>
-      {
-        Array.isArray (selected) &&
-        <>
-          {
-            selected.map (media => (
-              <div>media with id {media._id}</div>
-            ))
-          }
-        </>
-      }
-      {
-        !!selected &&
-        <div>media with id {selected._id}</div>
-      }
-      <form ref={formRef} onSubmit={handleSubmit}>
+    <Popup
+      trigger={<button className="upload-btn">Upload</button>}
+      closeOnDocumentClick
+      modal
+    >
+      <form style={{ height: "50px"}}  ref={formRef} onSubmit={handleSubmit}>
         <input type="file" name="upload" onChange={handleChange} />
-        <input type="submit" />
+        <input  type="submit" />
       </form>
-      </>
     </Popup>
-  )
-}
+  );
+};
 
 export default FileDialog

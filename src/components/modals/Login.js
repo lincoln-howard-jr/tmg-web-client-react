@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import useAuth from '../../hooks/useAuth';
 
-function LoginModal () {
+function Login () {
   const history = useHistory ();
   const {me, login} = useAuth ();
   if (me._id) history.push ('/');
@@ -14,13 +14,14 @@ function LoginModal () {
       return value.length > 7;
     }
   }
-
+  
   const onSubmit = async (validity, values) => {
     console.log (validity, values);
     await login (values);
     history.push ('/');
-  }
-  let {err, handleChange, handleSubmit} = useForm (validator, onSubmit);
+    }
+  
+    const {err, handleChange, handleSubmit} = useForm (validator, onSubmit);
   return (
     <Popup open={true}>
       <span>{err}</span>
@@ -31,10 +32,10 @@ function LoginModal () {
         <label>Password: </label>
         <input type="password" name="password" onChange={handleChange} />
         <br />
-        <input type="submit" />
+        <input type="submit"/>
       </form>
     </Popup>
   )
 }
 
-export default LoginModal
+export default Login

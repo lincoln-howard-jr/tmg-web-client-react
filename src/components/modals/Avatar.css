@@ -1,0 +1,22 @@
+.avatar-header {
+    border: 3px solid blue;
+}
+
+.avatar-modal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.avatar-btn-container {
+  display:flex;
+  flex-direction: row; 
+  justify-content:space-between;
+}
+
+
+
+
+
+
