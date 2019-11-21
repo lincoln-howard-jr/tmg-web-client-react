@@ -9,6 +9,18 @@ export default function useAuth () {
   const abortController = new AbortController ();
   const signal = abortController.signal;
   
+  const getUserById = async (id) => {
+    try {
+      let response = await fetch (`${base}/api/users/${id}`, {credentials: 'include', signal});
+      let data = await response.json ();
+      setUser (data);
+    } catch (e) {
+      if (!e.name || !e.name === 'AbortError')
+        setErr (e);
+    }
+  }
+
+  // user login method
   const login = async (obj) => {
     try {
       if (me._id) return;
@@ -74,6 +86,8 @@ export default function useAuth () {
   useEffect (() => () => abortController.abort ());
 
   return {
+    getUserById,
+    meErr,
     me,
     user,
     getMe,
