@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
+import styles from './Cause.css'
 import useElections from '../../hooks/useElection';
 
 let placeholderData = [{
@@ -30,14 +31,14 @@ function CauseList ({mm, dd, yyyy}) {
     getCauses ();
   }, []);
   return (
-    <>
+    <div className={'cause-list-container'}>
       {placeholderData.map(cause => (<div>
         <h3>Cause Title: {cause.title}</h3>
         <p>Action Plan: {cause.actionPlan}</p>
         <p>Created: {cause.created}</p>
    </div>
       ))}
-    </>
+    </div>
   )
 }
 
@@ -46,20 +47,5 @@ CauseList.propTypes = {
   dd: PropTypes.number.isRequired,
   yyyy: PropTypes.number.isRequired
 }
-
-
-
-// user,
-// title: String,
-// actionPlan: String,
-// created: now,
-// election,
-// phase: reqStr,
-// prev: cause,
-// old: {
-//   type: Boolean,
-//   default: false
-// }
-// }
 
 export default CauseList
