@@ -14,7 +14,7 @@ function Signup() {
   }
   const {err, handleChange, handleSubmit} = useForm (onSubmit, {});
   return (
-    <Popup open={true}>
+    <Popup trigger={<button>Signup</button>}>
       {
         !!err &&
         <span>{err.toString ()}</span>

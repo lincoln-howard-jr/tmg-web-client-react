@@ -3,23 +3,16 @@ import PropTypes from "prop-types";
 import headerImage from './header.png';
 import GuestNavBar from './GuestNavBar'
 import UserNavBar from "./UserNavBar";
-import Search from "../common/Search"
+import Search from "./Search"
 import useAuth from '../../hooks/useAuth'
 import styles from './Header.css'
-import classNames from 'classnames'
 
 function Header() {
-
-  const imgClasses = classNames({
-    'header-img':true
-    })
-  
   const {me} = useAuth()
-    
+
   return (
-    <header>
-      <Search/>
-      {!me? <UserNavBar /> : <GuestNavBar /> }
+    <header className={'main-header'}>
+      {!me? <div className={'container'}><img src={headerImage} /><Search/><UserNavBar /></div> : <div className={'container'}><img src={headerImage} /><Search/><GuestNavBar /> </div> }
     </header>
   );
 }

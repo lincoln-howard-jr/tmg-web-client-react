@@ -4,8 +4,8 @@ import classNames from 'classnames'
 
 const Sidebar = () => {
 
-  let causeClasses = classNames({
-    'sidebar-container':true
+  const causeClasses = classNames({
+    'profile-sidebar-container':true
   })
 
     return (

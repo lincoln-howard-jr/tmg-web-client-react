@@ -1,7 +1,27 @@
-label {
-    align-self: flex-end;
+.container {
+    display:flex;
 }
 
-span {
+input[type=text]:hover {
+    align-items:center;
     display:flex;
+    flex-direction:column;
+    padding: 10px 10px 10px 10px;
+    background-image:'none';
+    transition: padding .9s;
+}
+
+input[type="text"]:focus {
+    outline: none
+}
+
+input[type='text'] {
+    font-size:30px;
+    align-self: stretch;
+} 
+
+input#search::placeholder {
+    background-image: url("");
+    background-repeat: no-repeat;
+    text-indent: 20px;
 }

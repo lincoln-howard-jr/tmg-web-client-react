@@ -16,23 +16,22 @@ function Login () {
   }
   
   const onSubmit = async (validity, values) => {
-    console.log (validity, values);
     await login (values);
     history.push ('/');
     }
   
     const {err, handleChange, handleSubmit} = useForm (validator, onSubmit);
   return (
-    <Popup open={true}>
+    <Popup trigger={<button>Login</button>}>
       <span>{err}</span>
       <form onSubmit={handleSubmit}>
         <label>Username: </label>
         <input type="text" name="username" onChange={handleChange} />
         <br />
         <label>Password: </label>
-        <input type="password" name="password" onChange={handleChange} />
+        <input type="text" name="password" onChange={handleChange} />
         <br />
-        <input type="submit"/>
+        <input type="submit" value="Submit"/>
       </form>
     </Popup>
   )

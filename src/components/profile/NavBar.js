@@ -8,11 +8,13 @@ const history = useHistory()
 const handleClick = () => {
     history.push('/')
 }
-    return (
+    return (      
+      <nav>
         <div style={{height:'60px', width:'60px', border:'solid 2px red'}}>
-           <img onClick={handleClick} src={headerImage} style={{width:'60px', height:'60px'}}/>
-           <NavLink to='logout' />
+           <span><img onClick={handleClick} src={headerImage} style={{width:'60px', height:'60px'}}/>
+           <button>Logout</button></span>
         </div>
+        </nav>
     )
 }
 
