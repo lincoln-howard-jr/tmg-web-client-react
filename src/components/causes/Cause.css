@@ -1,0 +1,21 @@
+h2 {
+    text-align:center;
+}
+
+.cause-details-container {
+    border:1px solid black;
+    width:100%;
+}
+
+.cause-list-container {
+    display:flex;
+    flex-direction:column;
+    border: 1px solid black;
+    }
+        
+.content-container {
+    display:flex;
+    flex-direction:row;
+    border: 1px solid red;
+}
+

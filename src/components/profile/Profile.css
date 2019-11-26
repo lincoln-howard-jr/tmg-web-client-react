@@ -1,14 +1,9 @@
+/* Element selectors */
+
 button {
     background-color: powderblue;
-    padding: 10px 10px 10px 10px;
     font-family: DejaVu Sans Mono, monospace;
     font-size: 12px;
-}
-
-nav{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
 }
 
 button:hover {
@@ -23,57 +18,64 @@ h1, h2, h3, h4, h5, h6 {
     font-family: DejaVu Sans Mono, monospace;
 }
 
-.flex-header-container {
-    border: 5px solid blue;
-    display:flex;
-    flex-direction:row;
+nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 
-.header-content {
-    align-items: center;
-    border: 3px solid blue;
+/* End element selectors */
+
+.profile-center-content-container {
     display:flex;
-    flex-direction: column;
+    flex-direction:row;
+    border:.75px solid black;
+}
+
+.profile-feed-container {
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid black;
+}
+
+.profile-header-content {
+    align-items: center;
+    border: 1px solid ;
+    display:flex;
+    flex-direction: row;
     width: 100%;
 }
 
-.header-content > h4 {
+.profile-header-content > h4 {
   align-self:flex-start;
   padding-top: 15px;
 }
 
-.header-content > button {
-    align-self: flex-start;
+.profile-header-content > button {
+    align-self: flex-end;
 }
 
-.main-container {
+.profile-header-container {
     background-color: white;
-    border: 3px solid blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-main-container {
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     height: -webkit-fill-available;
     width: -webkit-fill-available;
 }
 
-.main-container > div {
+.profile-main-container > div {
     background-color:white;
 }
 
-.feed-sidebar-container{
-    border: 3px solid blue;
-    display: flex;  
-    flex-direction: row;
-    height:100%;
-    width: 100%;
-}
 
-.feed-container{
-    border: 3px solid blue;
-    width: 100%;
-}
-
-.sidebar-container {
-    border:3px solid blue;
+.profile-sidebar-container {
     display: flex;
     flex-direction: column;
     width:30%;

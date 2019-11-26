@@ -13,16 +13,16 @@ const Avatar = () => {
   
   //Page level avatar img styling
   const avatarTriggerClasses = classNames({
-    'avatar-header': true
+    'profile-header-avatar': true
   });
 
     //Modal level avatar img sytling 
   const avatarModalClasses = classNames({
-    'avatar-modal':true
+    'profile-header-avatar':true
   })
 
   const avatarBtnContainer = classNames({
-    'avatar-btn-container':true
+    'profile-avatar-btn-container':true
   })
 
   const { profilePicture} = { profileOwner }

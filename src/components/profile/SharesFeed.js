@@ -3,9 +3,8 @@ import classNames from 'classnames'
 import ArticleList from "../articles/ArticleList";
 
 const SharesFeed = () => {
-
-  let feedClasses = classNames({
-    'feed-container':true
+  const feedClasses = classNames({
+    'profile-feed-container':true
   })
 
   return (

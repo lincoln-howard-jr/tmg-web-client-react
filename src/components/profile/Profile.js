@@ -6,11 +6,11 @@ import styles from "./Profile.css";
 import classNames from 'classnames'
 
 let mainClasses = classNames({
-  "main-container": true
+  "profile-main-container": true
 });
 
 let feedSidebarClasses = classNames({
-  "feed-sidebar-container": true});
+  "profile-center-content-container": true});
 
 const Profile = () => {
   return (

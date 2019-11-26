@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CauseDetails() {
+export default function CauseHeader() {
     const dummyCause = {
         title: 'Save the Whales',
         actionPlan: 'First, A, then B, then C.',
@@ -9,8 +9,6 @@ export default function CauseDetails() {
         old: false
       }
     return (
-        <div className={'cause-details-container'}>
-            <p>{dummyCause.actionPlan}</p>
-        </div>
+      <> <p>{`Created: ${dummyCause.created} Phase: ${dummyCause.phase}`}</p> <h2>{`${dummyCause.title}Action Plan!`}</h2></>
     )
 }

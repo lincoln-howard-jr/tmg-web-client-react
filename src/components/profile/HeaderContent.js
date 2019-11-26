@@ -10,7 +10,7 @@ const HeaderContent = ({myProfile}) => {
 
   const me = useAuth()
   let contentClasses = classNames({
-    'header-content':true,
+    'profile-header-content':true,
   })
 
 
