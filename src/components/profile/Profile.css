@@ -74,9 +74,3 @@ nav {
     background-color:white;
 }
 
-
-.profile-sidebar-container {
-    display: flex;
-    flex-direction: column;
-    width:30%;
-}

@@ -4,7 +4,6 @@ import CauseContainer from './CauseContainer'
 import MainHeader from '../common/Header'
 
 const Cause = () => {
-  console.log(MainHeader)
   return (
     <>
     <MainHeader/>

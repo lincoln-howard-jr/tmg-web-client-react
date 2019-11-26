@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderContainer from "./HeaderContainer";
 import SharesFeed from "./SharesFeed";
-import Sidebar from "./Sidebar";
+import CauseList from '../causes/CauseList'
 import styles from "./Profile.css";
 import classNames from 'classnames'
 
@@ -18,7 +18,7 @@ const Profile = () => {
       <HeaderContainer/>
       <div className={feedSidebarClasses}>
         <SharesFeed />
-          <Sidebar />
+          <CauseList/>
       </div>
     </div>
   );
