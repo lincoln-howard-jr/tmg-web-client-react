@@ -83,7 +83,11 @@ export default function useAuth () {
     setUserErr(null)
   }
 
-  useEffect (() => () => abortController.abort ());
+  useEffect (() => {
+    getMe ();
+
+    return () => abortController.abort ();
+  }, []);
 
   return {
     getUserById,

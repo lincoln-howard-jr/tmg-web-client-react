@@ -8,13 +8,16 @@ import Home from "./components/home/Home";
 import Login from "./components/modals/Login";
 import Profile from './components/profile/Profile'
 import Signup from "./components/modals/Signup";
-import useAuth from './hooks//useAuth';
+import {useApp} from './AppProvider';
 
 function App() {
-  let { meErr, me, login, signup, getMe } = useAuth();
+  let { meErr, me, login, signup, getMe } = useApp ().useAuth;
   return (
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route path="/profile/:id" render={(props) => (
+        <Profile {...props} />
+      )}/>
       {
         !me._id &&
         <>
@@ -36,11 +39,6 @@ function App() {
               <FileDialog {...props} />
             </>
           )}/>
-               <Route path="/profile/:id" render={(props) => (
-              
-              <Profile {...props} />
-   
-          )}/>
            <Route path="/causes/:id" render={(props) => (
               <Cause {...props} />
    
@@ -51,13 +49,6 @@ function App() {
           )}/>
         </>
         
-      }
-
-      {
-        !!me._id &&
-        <>
-          <Route path="/profile" render={(props) => (<Profile {...props} />)} />
-        </>
       }
     </Switch>
   );

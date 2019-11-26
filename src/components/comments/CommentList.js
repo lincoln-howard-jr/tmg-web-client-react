@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import Comment from './Comment';
-import useComments from '../../hooks/useComments';
+import {useApp} from '../../AppProvider';
 
 function CommentList({rootType, rootId}) {
-  let {comments} = useComments (rootType, rootId);
+  let {comments} = useApp ().useComments (rootType, rootId);
   return (
     <ul className="comments-list">
       {
