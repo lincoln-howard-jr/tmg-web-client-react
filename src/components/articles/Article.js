@@ -21,7 +21,7 @@ const Article = props => {
       <p>
         <b>Tags:</b> {tags.join(", ")}
       </p>
-      <CommentList rootType={"comment"} root_id={_id} />
+      <CommentList rootType="comments" rootId={_id} />
     </div>
   );
 };

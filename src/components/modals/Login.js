@@ -2,12 +2,11 @@ import React from "react";
 import Popup from "reactjs-popup";
 import { useHistory } from "react-router-dom";
 import useForm from "../../hooks/useForm";
-import useAuth from "../../hooks/useAuth";
+import {useApp} from "../../AppProvider";
 
 function Login(props) {
   const history = useHistory();
-  const { me, login } = useAuth();
-  if (me._id) history.push("/");
+  const { me, login } = useApp ().useAuth;
 
   const validator = {
     password: value => {
@@ -20,10 +19,10 @@ function Login(props) {
     history.push("/");
   };
 
-  const { err, handleChange, handleSubmit } = useForm(validator, onSubmit);
+  const { err, handleChange, handleSubmit } = useForm(onSubmit);
   return (
     <Popup trigger={<button>Login</button>} modal={true}>
-      <span>{err}</span>
+      <span>{err && err.toString ()}</span>
       <form onSubmit={handleSubmit}>
         <label>Username: </label>
         <input type="text" name="username" onChange={handleChange} />
