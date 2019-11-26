@@ -2,6 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter, Switch, Route } from "react-router-dom";
 import Cause from './components/causes/Cause'
+import Election from './components/election/Election'
 import FileDialog from './components/modals/FileDialog';
 import Home from "./components/home/Home";
 import Login from "./components/modals/Login";
@@ -42,6 +43,10 @@ function App() {
           )}/>
            <Route path="/causes/:id" render={(props) => (
               <Cause {...props} />
+   
+          )}/>
+            <Route path="/election" render={(props) => (
+              <Election {...props} />
    
           )}/>
         </>

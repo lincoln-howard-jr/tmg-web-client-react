@@ -18,11 +18,11 @@ const Avatar = () => {
 
     //Modal level avatar img sytling 
   const avatarModalClasses = classNames({
-    'profile-header-avatar':true
+    'profile-header-avatar-modal':true
   })
 
   const avatarBtnContainer = classNames({
-    'profile-avatar-btn-container':true
+    'profile-header-avatar-btn-container':true
   })
 
   const { profilePicture} = { profileOwner }
