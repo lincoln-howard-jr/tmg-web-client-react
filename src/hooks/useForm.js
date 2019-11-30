@@ -23,6 +23,7 @@ export default function useForm (onSubmit=defaultOnSubmit, validationSchema={}) 
     event.persist();
     let value = event.target.value;
     let name = event.target.name;
+    console.log(value, name)
     if (validationSchema [name]) {
       let isValid = validationSchema [name] (value);
       setValidity (validity => {return { ...validity, [name]: isValid }});

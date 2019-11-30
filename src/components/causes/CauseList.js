@@ -31,7 +31,7 @@ function CauseList ({mm, dd, yyyy}) {
     getCauses ();
   }, []);
   return (
-    <div className={'cause-list-container'}>
+    <div className={'cause-list-container-flex'}>
       {placeholderData.map(cause => (<div>
         <h3>Cause Title: {cause.title}</h3>
         <p>Action Plan: {cause.actionPlan}</p>

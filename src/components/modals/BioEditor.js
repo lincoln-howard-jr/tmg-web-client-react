@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './BioEditor.css'
-import classNames from 'classnames'
 import useForm from '../../hooks/useForm'
 import Popup from 'reactjs-popup'
 

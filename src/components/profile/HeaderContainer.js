@@ -1,28 +1,24 @@
 import React from "react";
-import classNames from 'classnames'
 import AvatarModal from "../modals/Avatar";
-import HeaderContent from "./HeaderContent";
-import GuestNavBar from '../common/GuestNavBar'
-import Search from '../common/Search'
-import UserNavBar from '../common/UserNavBar'
-import useAuth from '../../hooks/useAuth'
-import {useParams} from 'react-router-dom'
 import GlobalTopHeader from '../common/Header'
+import HeaderBio from "./HeaderBio";
+import ShareComposer from './ShareComposer'
+import useAuth from '../../hooks/useAuth'
+import styles from './Profile.css'
+import {useParams} from 'react-router-dom'
 
 const HeaderContainer = () => {
   const {me, me:{profilePicture}} = useAuth()
   const {id} = useParams ();
   const isProfileOwner = true
 
-let profileHeaderClasses = classNames({
-  'profile-header-container':true
-})
   return (
     <>
       <GlobalTopHeader />
-      <div className={profileHeaderClasses}>
+      <div className="profile-header-container-flex">
       <AvatarModal avatar={profilePicture}/>
-      <HeaderContent myProfile={isProfileOwner} />
+      <ShareComposer/>
+      <HeaderBio myProfile={isProfileOwner} />
       </div>
     </>
   )

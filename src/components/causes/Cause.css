@@ -7,15 +7,15 @@ h2 {
     width:100%;
 }
 
-.cause-list-container {
+.cause-list-container-flex {
     display:flex;
     flex-direction:column;
     border: 1px solid black;
     }
         
-.content-container {
+.content-container-flex {
     display:flex;
     flex-direction:row;
-    border: 1px solid red;
+    border: 1px solid black;
 }
 
