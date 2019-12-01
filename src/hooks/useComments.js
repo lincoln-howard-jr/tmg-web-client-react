@@ -6,6 +6,7 @@ let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.
 export default function useComments (rootType, rootId) {
   const [comments, setComments] = useState ([]);
   const [likes, setLikes] = useState ([]);
+  const [shares, setShares] = useState ([]);
   const [commentsErr, setErr] = useState (null);
   const controller = new AbortController ();
   const signal = controller.signal;
@@ -65,6 +66,17 @@ export default function useComments (rootType, rootId) {
     }
   }
 
+  const share = async (summary) => {
+    try {
+      let response = await fetch (`${base}/api/shares/${rootType}/${rootId}`, {credentials: 'include', method: 'post', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify ({summary}), signal})
+      let data = await response.json ();
+      setShares (shares => [...shares, data]);
+    } catch (e) {
+      if (!e.name || e.name !== 'AbortError')
+        setErr (e);
+    }
+  }
+
   // by default runs getComments, runs again when last updated changes
   useEffect (() => {
     getComments ();
@@ -80,7 +92,8 @@ export default function useComments (rootType, rootId) {
     likes,
     respond,
     likeIt,
-    getLikes
+    getLikes,
+    share
   }
 
 }

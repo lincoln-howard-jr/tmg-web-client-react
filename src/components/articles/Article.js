@@ -1,9 +1,14 @@
-import React from "react";
-import CommentList from "../comments/CommentList";
-import { propTypes } from "prop-types";
+import React, {useRef} from "react";
+import NewCommentList from "../comments/NewCommentList";
+import {useApp} from "../../AppProvider";
 
 const Article = props => {
+  const sumref = useRef ();
   const { article: { _id, articleMetadata: { title, author, datePublished: {day, month, year}} ,  user:{username},  userInterpretation:{summary, tags} } } = props;
+  const {share} = useApp ().useComments ('articles', _id);
+  const onClick = () => {
+    share (sumref.current.value);
+  }
   return (
     <div>
       <h3>{title}</h3>
@@ -21,14 +26,12 @@ const Article = props => {
       <p>
         <b>Tags:</b> {tags.join(", ")}
       </p>
-      <CommentList rootType="comments" rootId={_id} />
+      <input ref={sumref} placeholder="summary" />
+      <button onClick={onClick}>Share!</button>
+      <NewCommentList rootType="articles" rootId={_id} />
     </div>
   );
 };
-
-Article.propTypes = {
-  article: propTypes
-}
 
 export default Article;
 

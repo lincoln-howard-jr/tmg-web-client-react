@@ -39,7 +39,11 @@ export default function ArticlesHook () {
     }
   }
 
-  useEffect (() => () => controller.abort ());
+  useEffect (() => {
+    getArticles ();
+
+    return () => controller.abort ();
+  }, []);
 
   return {articles, getArticles, shareArticle}
 }

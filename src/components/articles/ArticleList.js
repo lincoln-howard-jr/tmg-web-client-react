@@ -1,5 +1,7 @@
 import React from 'react'
 import Article from './Article'
+import ShareArticle from './ShareArticle'
+import { useApp } from "../../AppProvider";
 
 const placeholderData = [
 
@@ -126,11 +128,13 @@ const placeholderData = [
 ]
 
 function ArticleList () {
+  const {articlesHook: {articles}} = useApp ();
   return (
     <>
       {
-        placeholderData.map (article => <Article key={article._id} article={article} />) 
+        articles.map (article => <Article key={article._id} article={article} />) 
       }
+      <ShareArticle />
     </>
   )
 }

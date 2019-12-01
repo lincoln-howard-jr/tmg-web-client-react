@@ -4,6 +4,7 @@ import useAuth from './hooks/useAuth';
 import useComments from './hooks/useComments';
 import useElection from './hooks/useElection';
 import useMedia from './hooks/useMedia';
+import useForm from './hooks/useForm';
 
 // context
 const AppCtx = createContext ();
@@ -11,10 +12,11 @@ const AppCtx = createContext ();
 function AppProvider({children}) {
   let value = {
     useAuth: useAuth (),
-    useArticles: useArticles (),
+    articlesHook: useArticles (),
     useMedia: useMedia (),
     useElection,
-    useComments
+    useComments,
+    useForm
   };
   return (
     <AppCtx.Provider value={value}>
