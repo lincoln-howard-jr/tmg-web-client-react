@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import CauseContainer from './CauseContainer'
-import MainHeader from '../common/Header'
+import GlobalTopHeader from '../common/Header'
 
 const Cause = () => {
   return (
     <>
-    <MainHeader/>
+    <GlobalTopHeader/>
     <CauseContainer/>
     </>
   )

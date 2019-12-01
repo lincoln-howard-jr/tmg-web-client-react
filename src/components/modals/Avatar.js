@@ -9,20 +9,11 @@ import { useParams } from "react-router-dom";
 const Avatar = () => {
   const { id } = useParams();
   const { me, getUser } = useAuth();
-  const profileOwner = getUser(id)
-  
-  //Page level avatar img styling
-  const avatarTriggerClasses = classNames({
-    'profile-header-avatar': true
-  });
+  const profileOwner = getUser(id) 
 
     //Modal level avatar img sytling 
   const avatarModalClasses = classNames({
     'profile-header-avatar-modal':true
-  })
-
-  const avatarBtnContainer = classNames({
-    'profile-header-avatar-btn-container':true
   })
 
   const { profilePicture} = { profileOwner }
@@ -31,7 +22,7 @@ const Avatar = () => {
   const src = avatar ? avatar : defaultAvatar;
   
   return (
-    <Popup trigger={<img className={avatarTriggerClasses} src={src} />} modal>
+    <Popup trigger={<div className='profile-header-avatar-border'><img src={src} /></div>} modal>
       {close => (
         <div>
           <img className={avatarModalClasses} src={src} />
@@ -39,7 +30,7 @@ const Avatar = () => {
             <a className="close" onClick={close}>
               &times;
             </a>
-            <span className={avatarBtnContainer}>
+            <span>
               {(profileOwner._id === me._id)? (
                 <>
                   <FileDialog />

@@ -1,5 +1,5 @@
 import React from "react";
-import Source from "./Source";
+import SourceDetails from "./SourceDetails";
 
 const sourceA = {
   id: "1",
@@ -24,13 +24,13 @@ const sources = [sourceA, sourceB, sourceC];
 
 const SourceList = () => {
   return (
-    <ul>
+    <div>
       {sources.map(source => (
-        <li>
-          <Source key={source.id} source={source} />
-        </li>
+        <p>
+          <SourceDetails key={source.id} source={source} />
+        </p>
       ))}
-    </ul>
+    </div>
   );
 };
 

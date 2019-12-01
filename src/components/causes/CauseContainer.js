@@ -8,7 +8,7 @@ import styles from './Cause.css'
       return (
         <>
           <CauseHeader />
-          <div className={"content-container"}>
+          <div className={"content-container-flex"}>
             <CauseDetails />
             <CauseList />
           </div>
