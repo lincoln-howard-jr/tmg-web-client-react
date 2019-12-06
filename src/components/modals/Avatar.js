@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 const Avatar = () => {
   const { id } = useParams();
   const { me, getUser } = useAuth();
-  const profileOwner = getUser(id) 
+  const profileOwner = 'cd310943109'
 
     //Modal level avatar img sytling 
   const avatarModalClasses = classNames({

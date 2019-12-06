@@ -5,8 +5,6 @@ import useForm from "../../hooks/useForm";
 
 const ShareComposer = () => {
   const onSubmit = e => {
-    e.preventDefault();
-    console.log(values);
   };
 
   const { handleChange, values } = useForm(onSubmit);

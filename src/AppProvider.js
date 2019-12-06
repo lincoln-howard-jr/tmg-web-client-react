@@ -12,7 +12,7 @@ const AppCtx = createContext ();
 function AppProvider({children}) {
   let value = {
     useAuth: useAuth (),
-    articlesHook: useArticles (),
+    useArticles: useArticles (),
     useMedia: useMedia (),
     useElection,
     useComments,

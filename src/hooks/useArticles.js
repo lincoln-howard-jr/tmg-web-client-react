@@ -14,6 +14,8 @@ export default function ArticlesHook () {
     try {
       let response = await fetch (`${base}/api/articles`, {credentials: 'include', signal});
       let data = await response.json ();
+      console.log(data)
+      // debugger
       setArticles (data);
     } catch (e) {
       if (!e.name || e.name !== 'AbortError')

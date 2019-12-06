@@ -2,14 +2,15 @@ import React from 'react'
 import {useApp} from '../../AppProvider';
 
 function ShareArticle() {
-  const {articlesHook: {shareArticle}, useForm} = useApp ();
+  const {useArticles: {shareArticle}, useForm} = useApp ();
   const onSubmit = (validity, values) => {
     let obj = Object.assign (values, {
       publishedDate: {
         month: values.month,
         day: values.day,
         year: values.year,
-      }
+      },
+      tags: values.tags
     });
     shareArticle (obj);
   }
@@ -27,6 +28,7 @@ function ShareArticle() {
         <input type="text" name="day" onChange={handleChange} /> / 
         <input type="text" name="year" onChange={handleChange} />
       </div>
+      <div>Tags: <input type="text" name="tags" onChange={handleChange} /></div>
       <input type="submit" />
     </form>
   )

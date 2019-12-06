@@ -67,16 +67,16 @@ export default function useAuth () {
     }
   }
 
-  const getUser = async id => {
-    try {
-      if (user._id || userErr) return;
-      const response = await fetch(`${base}/api/users`, {credentials: 'include', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify (id), signal});
-      const data = await response.json();
-      setUser(data);
-    } catch (e) {
-      setUserErr(e);
-    }
-  };
+  // const getUser = async id => {
+  //   try {
+  //     if (user._id || userErr) return;
+  //     const response = await fetch(`${base}/api/users`, {credentials: 'include', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify (id), signal});
+  //     const data = await response.json();
+  //     setUser(data);
+  //   } catch (e) {
+  //     setUserErr(e);
+  //   }
+  // };
 
   const clearErr = async () => {
     setErr (null);
@@ -95,7 +95,6 @@ export default function useAuth () {
     me,
     user,
     getMe,
-    getUser,
     login,
     logout,
     signup,
