@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import Popup from "reactjs-popup";
 import styles from "./Avatar.css";
 import FileDialog from "./FileDialog";
@@ -12,9 +11,6 @@ const Avatar = () => {
   const profileOwner = 'cd310943109'
 
     //Modal level avatar img sytling 
-  const avatarModalClasses = classNames({
-    'profile-header-avatar-modal':true
-  })
 
   const { profilePicture} = { profileOwner }
   const avatar = profilePicture
@@ -22,10 +18,10 @@ const Avatar = () => {
   const src = avatar ? avatar : defaultAvatar;
   
   return (
-    <Popup trigger={<div className='profile-header-avatar-border'><img src={src} /></div>} modal>
+    <Popup trigger={<div className='profile-header-grid-container profile-header-avatar-col'><img src={src} /></div>} modal>
       {close => (
         <div>
-          <img className={avatarModalClasses} src={src} />
+          <img className='profile-header-avatar-modal' src={src} />
           <div>
             <a className="close" onClick={close}>
               &times;

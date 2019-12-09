@@ -25,7 +25,6 @@ const AddTags = () => {
                 <input
                   type="text"
                   id="description"
-                  value={values.description}
                   onChange={handleChange}
                 />
               </form>

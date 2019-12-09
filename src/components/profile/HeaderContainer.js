@@ -3,19 +3,25 @@ import AvatarModal from "../modals/Avatar";
 import GlobalTopHeader from '../common/Header'
 import HeaderBio from "./HeaderBio";
 import ShareComposer from './ShareComposer'
-import useAuth from '../../hooks/useAuth'
+import {useApp} from '../../AppProvider'
 import styles from './Profile.css'
 import {useParams} from 'react-router-dom'
 
 const HeaderContainer = () => {
-  const {me, me:{profilePicture}} = useAuth()
+  const app = useApp()
+  const {me} = app.useAuth
+  
+  let profilePicture;
+  if(me.profilePicture){
+    profilePicture = me.profilePicture
+  }
   const {id} = useParams ();
   const isProfileOwner = true
 
   return (
     <>
       <GlobalTopHeader />
-      <div className="profile-header-container-flex">
+      <div className="profile-header-grid-container">
       <AvatarModal avatar={profilePicture}/>
       <ShareComposer/>
       <HeaderBio myProfile={isProfileOwner} />

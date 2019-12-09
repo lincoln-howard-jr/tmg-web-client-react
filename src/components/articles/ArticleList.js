@@ -4,9 +4,8 @@ import ShareArticle from "./ShareArticle";
 import { useApp } from "../../AppProvider";
 
 function ArticleList() {
-  const {
-    articles
-  } = useApp().useArticles;
+  const app = useApp();
+  const { articles } = app.useArticles;
   return (
     <>
       {articles.map(article => (

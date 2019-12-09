@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const UnfollowBtn = () => {
-    return (
-       <button>Unfollow</button>
-    )
-}
+  return <button>Unfollow</button>;
+};
 
-export default UnfollowBtn
+export default UnfollowBtn;
