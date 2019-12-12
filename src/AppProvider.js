@@ -14,8 +14,8 @@ function AppProvider({children}) {
     useAuth: useAuth (),
     useArticles: useArticles (),
     useMedia: useMedia (),
-    useElection,
     useComments,
+    useElection,
     useForm
   };
   return (

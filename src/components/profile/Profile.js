@@ -3,22 +3,14 @@ import HeaderContainer from "./HeaderContainer";
 import SharesFeed from "./SharesFeed";
 import SourceList from '../sources/SourceList'
 import styles from "./Profile.css";
-import classNames from 'classnames';
-
-let mainClasses = classNames({
-  "profile-main-container-flex": true
-});
-
-let feedSidebarClasses = classNames({
-  "profile-center-content-container-flex": true});
 
 const Profile = () => {
   return (
-    <div className={mainClasses}>
+    <div className= "profile-main-grid-container">
       <HeaderContainer/>
-      <div className={feedSidebarClasses}>
+      <div className="profile-center-content-grid-container">
         <SharesFeed />
-          <SourceList/>
+          <SourceList containerClass={'profile-source-container'}/>
       </div>
     </div>
   );

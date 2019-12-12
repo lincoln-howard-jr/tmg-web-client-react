@@ -1,9 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 
-const SourceDetails = props => {
-  const { source: { siteName, url, followingCount } } = props;
-
+const SourceDetails = ({ source: { siteName, url, followingCount } }) => {
   return (
     <div>
       <h3>SourceDetails: {siteName}</h3>
