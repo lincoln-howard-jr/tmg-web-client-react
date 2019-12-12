@@ -23,7 +23,7 @@ const HeaderContainer = () => {
       <GlobalTopHeader />
       <div className="profile-header-grid-container">
       <AvatarModal avatar={profilePicture}/>
-      <ShareComposer/>
+      <ShareComposer rootType={''}/>
       <HeaderBio myProfile={isProfileOwner} />
       </div>
     </>

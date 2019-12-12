@@ -11,22 +11,14 @@ import Signup from "./components/modals/Signup";
 import { useApp } from "./AppProvider";
 
 function App() {
-  let { meErr, me, login, signup, getMe } = useApp().useAuth;
+  let {useAuth: { meErr, me, login, signup, getMe }, selectFiles}= useApp();
   return (
+    <>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/profile/:id" render={props => <Profile {...props} />} />
       {!me._id && (
         <>
-          <Route
-            path="/login"
-            render={props => (
-              <>
-                <Home {...props} me={me} />
-                <Login {...props} />
-              </>
-            )}
-          />
           <Route
             path="/signup"
             render={props => (
@@ -50,6 +42,8 @@ function App() {
         </>
       )}
     </Switch>
+    <button onClick={async () => {console.log (await selectFiles ())}}>Select Files</button>
+    </>
   );
 }
 export default withRouter(App);

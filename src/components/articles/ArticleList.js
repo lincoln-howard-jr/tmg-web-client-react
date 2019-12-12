@@ -1,6 +1,5 @@
-import React from "react";
-import Article from "./Article";
-import ShareArticle from "./ShareArticle";
+import React from 'react'
+import Article from './Article'
 import { useApp } from "../../AppProvider";
 
 function ArticleList() {
@@ -8,10 +7,9 @@ function ArticleList() {
   const { articles } = app.useArticles;
   return (
     <>
-      {articles.map(article => (
-        <Article key={article._id} article={article} />
-      ))}
-      <ShareArticle />
+      {
+        articles.map (article => <Article key={article._id} article={article} />)
+      }
     </>
   );
 }

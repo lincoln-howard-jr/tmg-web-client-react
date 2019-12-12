@@ -1,15 +1,21 @@
 import React from "react";
-import Login from '../modals/Login'
-import Signup from '../modals/Signup'
+import {useApp} from '../../AppProvider'
 
-const GuestNavBar = () => {
+export default function GuestNavBar () {
 
+  const {login} = useApp ();
+  const onClick = async () => {
+    try {
+      await login ();
+      console.log ('success');
+    } catch (e) {
+      console.log (e);
+    }
+  }
   return (
       <nav>
-        <h6>Already have an account?</h6> <Login/>
-        <Signup/>
+        <h6>Already have an account?</h6>
+        <button onClick={onClick}>Login</button>
       </nav>
   );
 };
-
-export default GuestNavBar;
