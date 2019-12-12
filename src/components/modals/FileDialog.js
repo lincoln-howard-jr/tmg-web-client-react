@@ -1,30 +1,40 @@
-import React, {useRef} from 'react'
-import Popup from 'reactjs-popup';
-import styles from './FileDialog.css';
-import useMedia from '../../hooks/useMedia';
-import useForm from '../../hooks/useForm';
+import React, {useRef, useEffect} from 'react'
+import {useApp} from '../../AppProvider'
 
-const FileDialog = () => {
+const FileDialog = ({onDone, max}) => {
   const formRef = useRef(null);
-  const { upload } = useMedia();
+  const { useMedia: {isSelected, toggleSelected, getMedia, selected, mediaUrl, media, upload}, useForm } = useApp ();
   
+  const clickInput = () => {
+    formRef.current.elements.file.click ();
+  }
+
+  useEffect (() => {
+    getMedia ();
+  }, [])
+
   const onSubmit = () => {
     const body = new FormData(formRef.current);
-    upload(body);
+    upload (body);
+    getMedia ();
   };
 
   const { handleSubmit, handleChange } = useForm(onSubmit);
   return (
-    <Popup
-      trigger={<button className="upload-btn">Upload</button>}
-      closeOnDocumentClick
-      modal
-    >
-      <form style={{ height: "50px"}}  ref={formRef} onSubmit={handleSubmit}>
-        <input type="file" name="upload" onChange={handleChange} />
-        <input  type="submit" />
+    <>
+      <ul>
+        {
+          media.map (m => (
+            <img className={`thumbnail-image ${isSelected (m) ? 'selected' : ''}`} onClick={toggleSelected (m)} src={mediaUrl (m)} />
+          ))
+        }
+      </ul>
+      <button onClick={clickInput}>Upload</button>
+      <form ref={formRef} style={{display: 'none'}}>
+        <input name="file" type="file" multiple onChange={onSubmit} />
       </form>
-    </Popup>
+      <button onClick={() => {onDone (selected)}}>Done!</button>
+    </>
   );
 };
 

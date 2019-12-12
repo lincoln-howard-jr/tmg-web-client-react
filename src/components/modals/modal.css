@@ -1,0 +1,26 @@
+#modal-backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: #66666666;
+}
+#modal-backdrop.closed {
+  display: none;
+}
+#modal {
+  margin: 10vh 10vw;
+  height: 80vh;
+  width: 80vw;
+  background-color: white;
+}
+.thumbnail-image {
+  display: inline-block;
+  margin: 6px;
+  height: 128px;
+}
+.thumbnail-image.selected {
+  border: 3px solid lightblue;
+}

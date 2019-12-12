@@ -70,17 +70,27 @@ export default function useAuth () {
   const getUser = async id => {
     try {
       if (user._id || userErr) return;
-      const response = await fetch(`${base}/api/users`, {credentials: 'include', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify (id), signal});
+      const response = await fetch(`${base}/api/users/${id}`, {credentials: 'include', signal});
       const data = await response.json();
       setUser(data);
     } catch (e) {
-      setUserErr(e);
+      if (!e.name || e.name !== 'AbortError')
+        setErr (e);
     }
   };
 
   const clearErr = async () => {
     setErr (null);
-    setUserErr(null)
+    setUserErr(null);
+  }
+
+  const updateUser = async obj => {
+    try {
+      if (user._id || userErr) return;
+      const response = await fetch (`${base}/api/users`, {credentials: 'include', method: 'put', headers: new Headers ({'Content-Type': 'application/json'}), body: JSON.stringify (obj), signal});
+    } catch (e) {
+      setUserErr (e);
+    }
   }
 
   useEffect (() => {

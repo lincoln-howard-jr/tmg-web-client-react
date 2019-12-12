@@ -17,7 +17,7 @@ const HeaderContainer = () => {
       <GlobalTopHeader />
       <div className="profile-header-container-flex">
       <AvatarModal avatar={profilePicture}/>
-      <ShareComposer/>
+      <ShareComposer rootType={''}/>
       <HeaderBio myProfile={isProfileOwner} />
       </div>
     </>
