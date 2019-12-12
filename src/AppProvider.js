@@ -36,10 +36,10 @@ function AppProvider({children}) {
       });
     },
     useAuth: useAuth (),
-    articlesHook: useArticles (),
+    useArticles: useArticles (),
     useMedia: useMedia (),
-    useElection,
     useComments,
+    useElection,
     useForm
   }
 

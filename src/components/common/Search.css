@@ -1,5 +1,5 @@
-.container {
-    display:flex;
+.search-item {
+    grid-column: 3;
 }
 
 input[type=text]#search:hover {

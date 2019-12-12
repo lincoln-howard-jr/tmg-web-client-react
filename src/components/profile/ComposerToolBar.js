@@ -1,20 +1,26 @@
 import React from 'react'
 import styles from './Profile'
-import AppProvider from '../../AppProvider'
+import AddArticle from '../modals/AddArticle'
+import AddVideo from '../modals/AddVideo'
+import AddTags from '../modals/AddTags'
+import useForm from "../../hooks/useForm";
 
 const ComposerToolBar = () => {
-
-const app = AppProvider()
-
-const {share} = app.useComments("")
-
-
+    const onSubmit = e => {
+    };
+    const { handleChange, values } = useForm(onSubmit);
 
     return (
-        <div className="share-composer-toolbar-container-flex">
-           <button>+ Article</button> 
-           <button>+ Video</button> 
-           <button>+ Tags</button> 
+        <div className="share-composer-toolbar-grid-container">
+           <AddArticle/>
+           <AddVideo/>
+           <AddTags/>
+           <div>
+           <button  type="submit" onClick={onSubmit}>
+          Share Article
+        </button>
+        </div>
+
         </div>
     )
 }

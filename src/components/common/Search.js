@@ -6,7 +6,7 @@ const Search = () => {
         console.log(self)
     }
     return (
-        <span>
+        <span className={'search-item'}>
         <label name="search-text" >
         <input type="text" name="search-text" id="search" placeholder="Search" value="" />
         </label><img style={{height:'50px', width:'50px'}}src="https://img.icons8.com/plasticine/100/000000/search.png"/>

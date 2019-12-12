@@ -1,8 +1,9 @@
 import React from "react";
 import {useApp} from "../../AppProvider";
 
-function Login({onDone}) {
-  const { useAuth: {me, login}, useForm } = useApp ();
+function Login(props) {
+  const app = useApp();
+  const { useForm, auth: {login} } = app;
 
   const validator = {
     password: value => {

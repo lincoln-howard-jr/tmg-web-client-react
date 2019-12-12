@@ -105,7 +105,6 @@ export default function useAuth () {
     me,
     user,
     getMe,
-    getUser,
     login,
     logout,
     signup,

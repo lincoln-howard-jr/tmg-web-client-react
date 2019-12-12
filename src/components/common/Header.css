@@ -1,20 +1,9 @@
-.main-header {
+.global-header-grid-container {
+  display:grid;
   background-color:rgb(35, 203, 245);
+  grid-column-gap: 20px;
 }
 
-.container {
-	max-width: 100%;
-	margin: 0 auto;
-}
-
-.main-header .container {
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
-    flex-wrap:wrap;
-    height:75px;
-}
-
-.main-header img {
+.global-header-grid-container img {
     height:70px;
 }

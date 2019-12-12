@@ -1,5 +1,6 @@
 import React from "react";
 import SourceDetails from "./SourceDetails";
+import styles from '../profile/Profile.css'
 
 const sourceA = {
   id: "1",
@@ -22,9 +23,9 @@ const sourceC = {
 
 const sources = [sourceA, sourceB, sourceC];
 
-const SourceList = () => {
+const SourceList = ({containerClass}) => {
   return (
-    <div>
+    <div className={containerClass? containerClass : ''}>
       {sources.map(source => (
         <p>
           <SourceDetails key={source.id} source={source} />
