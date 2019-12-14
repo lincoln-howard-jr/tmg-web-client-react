@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
-let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
-
+import base from './baseUrl'
 // media hooks
 export default function useMedia () {
   const [selected, setSelected] = useState ([]);
