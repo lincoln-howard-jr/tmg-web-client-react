@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-let base = 'http://localhost:8000';
+import base from './baseUrl'
 
 // articles hook
 export default function ArticlesHook () {

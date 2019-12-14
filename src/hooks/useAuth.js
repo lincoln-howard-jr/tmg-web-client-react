@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
-let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
-
+import base from './baseUrl'
 export default function useAuth () {
   const [me, setMe] = useState ({});
   const [meErr, setErr] = useState (null);
@@ -58,7 +57,7 @@ export default function useAuth () {
   const getMe = async () => {
     try {
       if (me._id || meErr) return;
-      let response = await fetch (`${base}/api/sessions`, {credentials: 'include', signal});
+      let response = await fetch (`${base}/api/me`, {credentials: 'include', signal});
       let data = await response.json ();
       setMe (data);
     } catch (e) {

@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
-let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
-
+import base from './baseUrl'
 // setup comments hook with provided type and id
 // by default retrieves comments on provided object
 export default function useComments (rootType, rootId) {

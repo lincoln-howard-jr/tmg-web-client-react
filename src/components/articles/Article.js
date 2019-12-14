@@ -2,42 +2,34 @@ import React, { useRef } from "react";
 import CommentList from "../comments/CommentList";
 import { useApp } from "../../AppProvider";
 
-const Article = props => {
-  const sumref = useRef();
-  const {
-    article: {
-      _id,
-      title,
-      author,
-      publishedDate: { day, month, year },
-      user: { username },
-      summary,
-      tags
-    }
-  } = props;
-  const { share } = useApp().useComments("articles", _id);
+const Article = ({article}) => {
+  const sumref = useRef();;
+  const { share } = useApp().useComments("articles", article._id);
   // debugger
   const onClick = () => {
     share(sumref.current.value);
   };
   return (
     <div>
-      <h3>{title}</h3>
-      <h4>By: {author}</h4>
+      <h3>{article.articleMetadata.title}</h3>
+      <h4>By: {article.articleMetadata.author}</h4>
       <h6>
-        Published on: {month + 1}/{day}/{year}
+        Published on:
+        {article.articleMetadata.datePublished.month + 1}
+        /{article.articleMetadata.datePublished.day}
+        /{article.articleMetadata.datePublished.year}
       </h6>
       <hr />
-      <h6>Shared by: {username}</h6>
+      <h6>Shared by: {article.user.username}</h6>
       <p>
-        <b>Summary:</b> {summary}
+        <b>Summary:</b> {article.userInterpretation.summary}
       </p>
       <p>
-        <b>Tags:</b> {tags.join(", ")}
+        <b>Tags:</b> {article.userInterpretation.tags && article.userInterpretation.tags.join(", ")}
       </p>
       <input ref={sumref} placeholder="summary" />
       <button onClick={onClick}>Share!</button>
-      <CommentList rootType="articles" rootId={_id} />
+      <CommentList rootType="articles" rootId={article._id} />
     </div>
   );
 };

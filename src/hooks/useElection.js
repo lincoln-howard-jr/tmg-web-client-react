@@ -1,6 +1,5 @@
 import {useState} from 'react';
-let base = 'http://localhost:8000'; // https://09xunbe0wj.execute-api.us-east-1.amazonaws.com/Experimental
-
+import base from './baseUrl'
 // handle elections causes and voting
 export default function ElectionHook (mm, dd, yyyy) {
   let [election, setElection] = useState ({});
