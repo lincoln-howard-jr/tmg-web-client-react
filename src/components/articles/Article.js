@@ -7,16 +7,15 @@ const Article = props => {
   const {
     article: {
       _id,
-      title,
       author,
-      publishedDate: { day, month, year },
+      articleMetadata: {title, datePublished: { day, month, year }},
       user: { username },
       summary,
       tags
     }
   } = props;
   const { share } = useApp().useComments("articles", _id);
-  // debugger
+  
   const onClick = () => {
     share(sumref.current.value);
   };
@@ -33,7 +32,7 @@ const Article = props => {
         <b>Summary:</b> {summary}
       </p>
       <p>
-        <b>Tags:</b> {tags.join(", ")}
+        <b>Tags:</b> {tags && tags.join(", ")}
       </p>
       <input ref={sumref} placeholder="summary" />
       <button onClick={onClick}>Share!</button>

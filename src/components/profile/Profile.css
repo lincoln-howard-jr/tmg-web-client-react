@@ -57,8 +57,6 @@ nav {
     grid-column: 2;
 }
 
-
-
 .profile-header-bio-grid-container {
     display:grid;
     grid-row:3;
