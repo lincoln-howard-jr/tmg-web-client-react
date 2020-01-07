@@ -14,8 +14,10 @@ export default function GuestNavBar () {
   }
   return (
       <nav>
-        <h6>Already have an account?</h6>
         <button onClick={onClick}>Login</button>
+        <button>Sign Up</button>
+        <button>Terms of Service</button>
+        <button>Log Out</button>
       </nav>
   );
 };

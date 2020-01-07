@@ -1,24 +1,40 @@
 /* Element selectors */
-
 button {
-    background-color: powderblue;
-    font-family: DejaVu Sans Mono, monospace;
-    font-size: 12px;
-    display:inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #666666aa;
+    background-color: #fafafa;
+    line-height: 12px;
+    margin: 0 5px;
+    transition: 0.3s;
+    outline: 0;
 }
-
 button:hover {
-    font-weight: bold;
-    font-size: 16x;
-    padding: 15px 15px 15px 15px;
-    transition: background-color .9s, font-size .9s, padding .9s
+    box-shadow: 1px 0 2px #77777766;
+    background-color: #f4f4fa;
+}
+button:active {
+    outline: 0;
+    box-shadow: none;
+}
+button:first-of-type:not(:last-of-type) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+    border-right: 0;
 
 }
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: DejaVu Sans Mono, monospace;
+button + button:not(:last-of-type) {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-right: 0;
 }
-
+button + button:last-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+}
 nav {
     grid-row:1;
     grid-column:4;

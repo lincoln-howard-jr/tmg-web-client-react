@@ -11,7 +11,9 @@ function Modal({close, isOpen, Component, onDone, children}) {
   return (
     <div onClick={onClick} ref={backdrop} id="modal-backdrop" className={isOpen ? 'open' : 'closed'}>
       <div id="modal">
-        {children}
+        <div>
+          {children}
+        </div>
       </div>
     </div>
   )
