@@ -9,7 +9,6 @@ import styles from "./Header.css";
 
 function Header() {
   const { me } = useApp().useAuth;
-
   return (
     <header>
       <div className={"global-header-grid-container"}>

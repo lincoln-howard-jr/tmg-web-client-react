@@ -17,7 +17,6 @@ export default function GuestNavBar () {
         <button onClick={onClick}>Login</button>
         <button>Sign Up</button>
         <button>Terms of Service</button>
-        <button>Log Out</button>
       </nav>
   );
 };

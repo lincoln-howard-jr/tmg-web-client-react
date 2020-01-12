@@ -3,7 +3,7 @@ import React from 'react'
 const BioDetails = () => {
     return (
        <p>
-        ------100 char bio---------Goes-----------Here-------------------- 
+        'My short bio here'
        </p>
     )
 }

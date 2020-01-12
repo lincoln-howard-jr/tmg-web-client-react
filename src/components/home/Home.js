@@ -1,7 +1,5 @@
 import React from 'react';
 import Header from '../common/Header'
-import CauseList from '../causes/CauseList';
-import CommentList from '../comments/CommentList';
 import ArticleList from '../articles/ArticleList';
 import SourceList from '../sources/SourceList'
 import UserList from '../users/UserList';
